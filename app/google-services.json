@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "781455933301",
+    "project_id": "english-it-8a8b4",
+    "storage_bucket": "english-it-8a8b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781455933301:android:52e7b61d7b25bbfcf85d3c",
+        "android_client_info": {
+          "package_name": "com.study.englishit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781455933301-rd6v4p8ja0p5ahetrvtjes9u5rvqqtjt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVwBRj-Ht1tXEkxjpNjbxa8dft9KndexY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781455933301-rd6v4p8ja0p5ahetrvtjes9u5rvqqtjt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
