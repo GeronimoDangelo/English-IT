@@ -18,17 +18,16 @@ class HomeActivity : AppCompatActivity() {
         //setup
         val bundle = intent.extras
         val email = bundle?.getString(USER_EMAIL_FB)
-        val provider = bundle?.getString("provider")
-        if (email != null && provider != null) {
-            setup(email = email, provider = provider)
 
+        if (email != null ) {
+            setup(email = email)
         }
     }
 
-    private fun setup(email: String, provider: String) {
+    private fun setup(email: String) {
         binding.tvEmail.text = email
-        binding.tvProvider.text = provider
         val btnLogOut = binding.btnLogOut
+        //sign out
         btnLogOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             finish()
@@ -39,7 +38,3 @@ class HomeActivity : AppCompatActivity() {
 }
 
 
-enum class ProviderType {
-    BASIC,
-    COMPLEX
-}
