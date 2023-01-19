@@ -1,8 +1,9 @@
-package com.study.englishit
+package com.study.englishit.ui.views.homeActivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
+import com.study.englishit.R
 import com.study.englishit.databinding.ActivityHomeBinding
 import com.study.englishit.util.Constants.USER_EMAIL_FB
 

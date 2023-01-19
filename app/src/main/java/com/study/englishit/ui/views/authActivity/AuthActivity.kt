@@ -1,4 +1,4 @@
-package com.study.englishit
+package com.study.englishit.ui.views.authActivity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +7,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
-import com.google.firebase.ktx.Firebase
+import com.study.englishit.ui.views.homeActivity.HomeActivity
+import com.study.englishit.R
 import com.study.englishit.databinding.AuthActivityBinding
 import com.study.englishit.util.Constants.USER_EMAIL_FB
 
