@@ -13,17 +13,17 @@
         android:theme="@style/SplashTheme"
         tools:targetApi="31">
         <activity
-            android:name=".ui.presentation.homeScreen.HomeActivity"
-            android:exported="false" />
+            android:name=".ui.presentation.signup.SignUpActivity"
+            android:exported="true" />
         <activity
-            android:name=".ui.presentation.authScreen.AuthActivity"
+            android:name=".ui.presentation.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

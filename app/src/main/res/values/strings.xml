@@ -23,4 +23,6 @@
     <string name="signup__error_passwords_match">Las contraseñas no coinciden</string>
     <string name="signup__error_email_already_registered">Ya existe una cuenta registrada con este correo electrónico</string>
     <string name="signup__error_unknown_error">Algo salió mal, intente de nuevo más tarde</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
