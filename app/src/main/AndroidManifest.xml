@@ -13,10 +13,10 @@
         android:theme="@style/SplashTheme"
         tools:targetApi="31">
         <activity
-            android:name=".ui.views.homeActivity.HomeActivity"
+            android:name=".ui.presentation.homeScreen.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.views.authActivity.AuthActivity"
+            android:name=".ui.presentation.authScreen.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
