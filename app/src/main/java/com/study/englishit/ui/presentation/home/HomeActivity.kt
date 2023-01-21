@@ -1,12 +1,13 @@
-package com.study.englishit.ui.presentation.signup
+package com.study.englishit.ui.presentation.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.study.englishit.R
 
-class SignUpActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        setTheme(R.style.Theme_EnglishIT)
+        setContentView(R.layout.activity_home)
     }
 }

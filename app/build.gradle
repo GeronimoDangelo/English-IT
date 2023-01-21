@@ -43,6 +43,7 @@ dependencies {
     def lifecycle_version = "2.5.1"
     def arch_version = "2.1.0"
     def room_version = "2.5.0"
+    def fragment_version = "1.5.5"
 
 
     implementation 'androidx.core:core-ktx:1.9.0'
@@ -76,6 +77,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
+    //
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
 
 }
