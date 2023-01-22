@@ -32,6 +32,18 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="181dp" />
 
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pbSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/btnSignUp"
+                app:layout_constraintEnd_toEndOf="@id/btnSignUp"
+                app:layout_constraintStart_toStartOf="@id/btnSignUp"
+                app:layout_constraintTop_toTopOf="@id/btnSignUp"
+                tools:visibility="gone" />
+
 
             <Button
                 android:id="@+id/btnSignUp"
@@ -58,6 +70,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
+                    android:id="@+id/etEmail"
                     android:layout_height="wrap_content"
                     android:background="@drawable/corner"
                     android:hint="@string/signup__email_hint"
@@ -71,15 +84,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="36dp"
                 android:layout_marginTop="10dp"
-                app:passwordToggleTint="@color/text_color_hint"
                 android:textColorHint="@color/text_color_hint"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
                 app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/text_color_hint"
                 tools:layout_editor_absoluteX="36dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/etPassword"
                     android:background="@drawable/corner"
                     android:hint="@string/signup__password_hint"
                     android:inputType="textPassword"
@@ -102,6 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/corner"
+                    android:id="@+id/etConfirmPassword"
                     android:hint="@string/signup__conf_password"
                     android:inputType="textPassword"
                     android:textColor="@color/text_color_hint" />
