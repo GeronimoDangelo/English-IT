@@ -47,12 +47,15 @@
 
             <Button
                 android:id="@+id/btnSignUp"
+                style="@style/btnSignUpStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="36dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/btnSignUp"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_regular"
+                android:background="@color/btnSignUp"
                 android:text="@string/registrarme"
                 android:textColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
@@ -60,8 +63,11 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
+                app:startIconDrawable="@drawable/user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                app:startIconTint="@color/text_icon_hint"
                 android:layout_marginHorizontal="36dp"
                 android:textColorHint="@color/text_color_hint"
                 app:layout_constraintTop_toTopOf="@+id/guideline3"
@@ -71,8 +77,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/poppins_light"
+
                     android:layout_height="wrap_content"
-                    android:background="@drawable/corner"
                     android:hint="@string/signup__email_hint"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/text_color_hint" />
@@ -83,7 +90,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="36dp"
+                app:startIconDrawable="@drawable/password"
                 android:layout_marginTop="10dp"
+                app:startIconTint="@color/text_icon_hint"
+                app:boxBackgroundColor="@color/white"
                 android:textColorHint="@color/text_color_hint"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
                 app:passwordToggleEnabled="true"
@@ -94,9 +104,9 @@
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/corner"
                     android:hint="@string/signup__password_hint"
                     android:inputType="textPassword"
+                    android:fontFamily="@font/poppins_light"
                     android:textColor="@color/text_color_hint" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,6 +116,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="36dp"
                 android:layout_marginTop="10dp"
+                app:startIconDrawable="@drawable/password"
+                app:boxBackgroundColor="@color/white"
+                app:startIconTint="@color/text_icon_hint"
                 android:textColorHint="@color/text_color_hint"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
                 app:passwordToggleEnabled="true"
@@ -116,7 +129,8 @@
                     android:id="@+id/etConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/corner"
+                    android:fontFamily="@font/poppins_light"
+
                     android:hint="@string/signup__conf_password"
                     android:inputType="textPassword"
                     android:textColor="@color/text_color_hint" />
@@ -130,6 +144,7 @@
                 android:layout_marginTop="15dp"
                 android:text="@string/policy"
                 android:textAlignment="center"
+                android:fontFamily="@font/poppins_light"
                 android:textColor="@color/whiteMoreTransparent"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -152,7 +167,7 @@
 
                 <ImageView
                     android:id="@+id/btnBack"
-                    android:layout_width="130dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:contentDescription="@string/arrow_back"
@@ -162,6 +177,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="@string/signup__header"
                     android:textColor="@color/whiteMoreTransparent"
                     android:textSize="25sp" />

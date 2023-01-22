@@ -25,9 +25,11 @@
 
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_bolditalic"
                 android:text="@string/login__title"
                 android:textColor="@color/white"
                 android:textSize="35sp"
@@ -42,6 +44,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
                 android:text="@string/login__aventura"
                 android:textColor="@color/white"
                 android:textSize="15sp"
@@ -57,20 +60,23 @@
                 android:layout_marginTop="20dp"
                 android:hint="@string/login__email_hint"
                 android:textColorHint="@color/text_color_hint"
+                app:boxBackgroundColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.54"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:startIconDrawable="@drawable/user"
+                app:startIconTint="@color/text_icon_hint">
 
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/corner"
                     android:ems="15"
+                    android:fontFamily="@font/poppins_light"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/text_color_hint" />
+                    android:textColor="@color/text_input" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,20 +88,23 @@
                 android:layout_marginTop="15dp"
                 android:hint="@string/login__password_hint"
                 android:textColorHint="@color/text_color_hint"
+                app:boxBackgroundColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tilEmail"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/text_color_hint">
+                app:passwordToggleTint="@color/text_color_hint"
+                app:startIconDrawable="@drawable/password"
+                app:startIconTint="@color/text_icon_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/corner"
+                    android:fontFamily="@font/poppins_light"
                     android:inputType="textPassword"
-                    android:textColor="@color/text_color_hint" />
+                    android:textColor="@color/text_input" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,37 +115,42 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_end="388dp" />
 
+
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/pbLogin"
-                android:layout_width="wrap_content"
                 style="@style/CircularProgressIndicator"
-                android:layout_height="wrap_content"
+                android:layout_width="21dp"
+                android:layout_height="20dp"
                 android:indeterminate="true"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/btnLogin"
                 app:layout_constraintEnd_toEndOf="@id/btnLogin"
                 app:layout_constraintStart_toStartOf="@id/btnLogin"
-                app:layout_constraintTop_toTopOf="@id/btnLogin" />
+                app:layout_constraintTop_toTopOf="@id/btnLogin"
+                tools:visibility="visible" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
+                style="@style/btnLoginStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="36dp"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/btnLogin"
+                android:background="@color/btnLogin"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/login__login_button"
                 android:textColor="@color/white"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
 
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="36dp"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -146,8 +160,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:layout_weight="0"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="@string/login__signup_text"
                     android:textColor="@color/white" />
 
@@ -155,13 +169,16 @@
                     android:id="@+id/btnSingUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="7dp"
                     android:layout_weight="0"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/poppins_semibolditalic"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
                     android:text="@string/login__signup_button"
                     android:textColor="@color/btnSignUpFromLogin"
-                    android:textSize="15sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
 

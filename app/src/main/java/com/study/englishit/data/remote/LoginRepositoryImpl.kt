@@ -26,7 +26,7 @@ class LoginRepositoryImpl @Inject constructor(
     override suspend fun login(email: String, password: String): Flow<DataState<Boolean>> = flow {
         emit(DataState.Loading)
         try {
-            var isSuccessful: Boolean = false
+            var isSuccessful = false
             auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener { isSuccessful = true }
                 .addOnFailureListener { isSuccessful = false }
@@ -118,7 +118,7 @@ class LoginRepositoryImpl @Inject constructor(
     override suspend fun saveUser(user: User): Flow<DataState<Boolean>> = flow {
         emit(DataState.Loading)
         try {
-            var uploadStatus: Boolean = false
+            var uploadStatus = false
             usersCollection.document(user.id).set(user, SetOptions.merge())
                 .addOnSuccessListener { uploadStatus = true }
                 .addOnFailureListener { uploadStatus = false }.await()

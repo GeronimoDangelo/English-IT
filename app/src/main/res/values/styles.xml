@@ -6,4 +6,12 @@
         <item name="trackColor">@color/whiteMoreTransparent</item>
     </style>
 
+    <style name="btnLoginStyle" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="backgroundTint">@color/btnLogin</item>
+    </style>
+
+    <style name="btnSignUpStyle" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="backgroundTint">@color/btnSignUp</item>
+    </style>
+
 </resources>
