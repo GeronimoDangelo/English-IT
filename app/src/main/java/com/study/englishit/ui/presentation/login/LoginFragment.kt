@@ -107,7 +107,7 @@ class LoginFragment : Fragment() {
     private fun showProgressBar() {
         binding.btnLogin.text = ""
         binding.btnLogin.isEnabled = false
-        binding.pbSignIn.visibility = View.VISIBLE
+        binding.pbLogin.visibility = View.VISIBLE
     }
 
     private fun manageLoginErrorMessages(exception: Exception) {
@@ -119,7 +119,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun hideProgressDialog() {
-        binding.pbSignIn.visibility = View.GONE
+        binding.pbLogin.visibility = View.GONE
         binding.btnLogin.text = getString(R.string.login__login_button)
         binding.btnLogin.isEnabled = true
     }
