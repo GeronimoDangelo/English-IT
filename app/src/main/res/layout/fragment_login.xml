@@ -11,11 +11,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="80dp"
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -28,36 +27,48 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/poppins_bolditalic"
                 android:text="@string/login__title"
                 android:textColor="@color/white"
                 android:textSize="35sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView"
+                app:layout_constraintBottom_toTopOf="@+id/fox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/fox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/logo"
+                app:layout_constraintBottom_toTopOf="@id/textView"
+                app:layout_constraintEnd_toEndOf="@id/textView2"
+                app:layout_constraintStart_toStartOf="@id/textView2"
+                app:layout_constraintTop_toBottomOf="@id/textView2" />
 
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/login__aventura"
                 android:textColor="@color/white"
                 android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline2" />
+                app:layout_constraintEnd_toEndOf="@id/tilEmail"
+                app:layout_constraintStart_toStartOf="@id/tilEmail"
+                app:layout_constraintTop_toBottomOf="@+id/fox" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="36dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:hint="@string/login__email_hint"
                 android:textColorHint="@color/text_color_hint"
                 app:boxBackgroundColor="@color/white"
@@ -107,15 +118,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_end="388dp" />
-
-
-
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
@@ -140,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="36dp"
                 android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -174,12 +177,12 @@
                 style="@style/CircularProgressIndicator"
                 android:layout_width="339dp"
                 android:layout_height="wrap_content"
-                app:trackThickness="10dp"
                 android:indeterminate="true"
                 android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@id/btnLogin"
-                app:layout_constraintStart_toStartOf="@id/btnLogin"
                 app:layout_constraintEnd_toEndOf="@id/btnLogin"
+                app:layout_constraintStart_toStartOf="@id/btnLogin"
+                app:layout_constraintTop_toBottomOf="@id/btnLogin"
+                app:trackThickness="10dp"
                 tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
