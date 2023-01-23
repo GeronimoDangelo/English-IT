@@ -9,12 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.study.englishit.R
 import com.study.englishit.databinding.FragmentSignUpBinding
 import com.study.englishit.domain.model.User
-import com.study.englishit.ui.presentation.login.LoginActivity
-import com.study.englishit.ui.presentation.login.LoginFragment
 import com.study.englishit.util.Constants.EMAIL_ALREADY_EXISTS
 import com.study.englishit.util.DataState
 import com.study.englishit.util.isInputEmpty
@@ -109,7 +106,7 @@ class SignUpFragment : Fragment() {
     }
 
     private fun showProgressBar() {
-        binding.btnSignUp.text = ""
+        binding.btnSignUp.text = "..."
         binding.btnSignUp.isEnabled = false
         binding.pbSignUp.visibility = View.VISIBLE
     }

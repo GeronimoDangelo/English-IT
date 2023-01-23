@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator">
+    <style name="CircularProgressIndicator" parent="Widget.MaterialComponents.LinearProgressIndicator">
         <item name="indicatorSize">20dp</item>
-        <item name="indicatorColor">@color/white</item>
+        <item name="indicatorColor">@color/btnLogin</item>
         <item name="trackColor">@color/bgProgress</item>
     </style>
 
