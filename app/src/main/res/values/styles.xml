@@ -3,7 +3,7 @@
     <style name="CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator">
         <item name="indicatorSize">20dp</item>
         <item name="indicatorColor">@color/white</item>
-        <item name="trackColor">@color/whiteMoreTransparent</item>
+        <item name="trackColor">@color/bgProgress</item>
     </style>
 
     <style name="btnLoginStyle" parent="Widget.MaterialComponents.CircularProgressIndicator">

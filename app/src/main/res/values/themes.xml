@@ -10,14 +10,14 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:statusBarColor">@color/topBar</item>
         <!-- Customize your theme here. -->
     </style>
 
 
     <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_logo</item>
-        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:statusBarColor">@color/topBar</item>
     </style>
 
 

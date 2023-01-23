@@ -2,6 +2,7 @@ package com.study.englishit.ui.presentation.sign_up
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.study.englishit.R
-import com.study.englishit.databinding.FragmentLoginBinding
 import com.study.englishit.databinding.FragmentSignUpBinding
 import com.study.englishit.domain.model.User
 import com.study.englishit.ui.presentation.login.LoginActivity
@@ -42,6 +42,7 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
         initObservers()
+        setupPolicyLink()
     }
 
     private fun initObservers() {
@@ -138,5 +139,12 @@ class SignUpFragment : Fragment() {
             }
         }
     }
+
+    private fun setupPolicyLink(){
+        val tvLinkPolicy = binding.tvLinkPolicy
+        tvLinkPolicy.movementMethod = LinkMovementMethod.getInstance()
+    }
+
+
 
 }

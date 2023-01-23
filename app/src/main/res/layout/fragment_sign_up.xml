@@ -67,6 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/btnSignUp"
+                app:hintTextColor="@color/btnSignUp"
                 app:startIconTint="@color/text_icon_hint"
                 android:layout_marginHorizontal="36dp"
                 android:textColorHint="@color/text_color_hint"
@@ -77,12 +79,11 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
-                    android:fontFamily="@font/poppins_light"
-
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:hint="@string/signup__email_hint"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/text_color_hint" />
+                    android:textColor="@color/text_input" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -94,6 +95,8 @@
                 android:layout_marginTop="10dp"
                 app:startIconTint="@color/text_icon_hint"
                 app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/btnSignUp"
+                app:hintTextColor="@color/btnSignUp"
                 android:textColorHint="@color/text_color_hint"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
                 app:passwordToggleEnabled="true"
@@ -107,7 +110,7 @@
                     android:hint="@string/signup__password_hint"
                     android:inputType="textPassword"
                     android:fontFamily="@font/poppins_light"
-                    android:textColor="@color/text_color_hint" />
+                    android:textColor="@color/text_input" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -119,6 +122,8 @@
                 app:startIconDrawable="@drawable/password"
                 app:boxBackgroundColor="@color/white"
                 app:startIconTint="@color/text_icon_hint"
+                app:boxStrokeColor="@color/btnSignUp"
+                app:hintTextColor="@color/btnSignUp"
                 android:textColorHint="@color/text_color_hint"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
                 app:passwordToggleEnabled="true"
@@ -133,25 +138,47 @@
 
                     android:hint="@string/signup__conf_password"
                     android:inputType="textPassword"
-                    android:textColor="@color/text_color_hint" />
+                    android:textColor="@color/text_input" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="36dp"
-                android:layout_marginTop="15dp"
-                android:text="@string/policy"
-                android:textAlignment="center"
-                android:fontFamily="@font/poppins_light"
-                android:textColor="@color/whiteMoreTransparent"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/btnSignUp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteY="375dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="36dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="@string/policy"
+                    android:textAlignment="center"
+                    android:textColor="@color/whiteMoreTransparent"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvLinkPolicy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:paddingBottom="20dp"
+                    android:textColorLink="@color/link"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/policy_2" />
+
+            </LinearLayout>
+
+
+
 
             <LinearLayout
                 android:id="@+id/linearLayout"
