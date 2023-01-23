@@ -27,6 +27,8 @@
     <string name="signup__error_unknown_error">Algo salió mal, intente de nuevo más tarde</string>
     <string name="arrow_back">arrow back</string>
     <string name="registrarme">Registrarme</string>
-    <string name="policy">Al registrarte estas aceptando todos nuestras politicas de privacidad y derechos de autor.</string>
+    <string name="policy">Al registrarte estas aceptando todas </string>
+    <string name="policy_2"><a href="https://www.termsfeed.com/live/dd1abf75-8f58-489f-b80a-32f1fef4c416">nuestras politicas de privacidad y derechos de autor. </a></string>
+
 
 </resources>
