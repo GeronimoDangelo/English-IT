@@ -1,16 +1,13 @@
 package com.study.englishit.ui.presentation.login
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.study.englishit.domain.use_cases.login.GetUserDataUseCase
 import com.study.englishit.domain.use_cases.logout.LogOutUseCase
 import com.study.englishit.domain.use_cases.login.LoginUseCase
-import com.study.englishit.util.DataState
+import com.study.englishit.util.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,15 +18,15 @@ class LoginViewModel @Inject constructor(
     private val getUserDataUseCase: GetUserDataUseCase,
 ) : ViewModel() {
 
-    private val _loginState: MutableLiveData<DataState<Boolean>> = MutableLiveData()
-    val loginState: LiveData<DataState<Boolean>>
-    get() = _loginState
+    private val _loginState: MutableStateFlow<Result<Boolean>> = MutableStateFlow(Result.Empty)
+    val loginState: StateFlow<Result<Boolean>> = _loginState.asStateFlow()
 
-    private val _logOut: MutableLiveData<DataState<Boolean>> = MutableLiveData()
-    val logOut: LiveData<DataState<Boolean>> = _logOut
 
-    private val _userDataState: MutableLiveData<DataState<Boolean>> = MutableLiveData()
-    val userDataState: LiveData<DataState<Boolean>> = _userDataState
+    private val _logOut: MutableStateFlow<Result<Boolean>> = MutableStateFlow(Result.Empty)
+    val logOut: StateFlow<Result<Boolean>> = _logOut.asStateFlow()
+
+    private val _userResult: MutableStateFlow<Result<Boolean>> = MutableStateFlow(Result.Empty)
+    val userResult: StateFlow<Result<Boolean>> = _userResult.asStateFlow()
 
     fun login(email: String, password: String) {
         viewModelScope.launch {
@@ -50,7 +47,7 @@ class LoginViewModel @Inject constructor(
     fun getUserData() {
         viewModelScope.launch {
             getUserDataUseCase().onEach { dataState ->
-                _userDataState.value = dataState
+                _userResult.value = dataState
             }.launchIn(viewModelScope)
         }
     }
