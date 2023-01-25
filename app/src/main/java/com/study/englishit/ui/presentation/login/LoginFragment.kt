@@ -1,11 +1,14 @@
 package com.study.englishit.ui.presentation.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -34,13 +37,23 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
+
+
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
         initListeners()
+
     }
+
+
+
+
+
+
 
     private fun initObservers() {
         lifecycleScope.launchWhenStarted {
@@ -60,6 +73,7 @@ class LoginFragment : Fragment() {
                 }
             }
         }
+
 
         lifecycleScope.launchWhenStarted {
             viewmodel.userResult.collectLatest { result ->
@@ -110,6 +124,9 @@ class LoginFragment : Fragment() {
     }
 
 
+
+
+
     private fun showProgressBar() {
         binding.btnLogin.text = "..."
         binding.btnLogin.isEnabled = false
@@ -136,9 +153,17 @@ class LoginFragment : Fragment() {
         binding.btnLogin.isEnabled = true
     }
 
+    private fun closeKeyboard(view: View){
+        val imn = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imn.hideSoftInputFromWindow(view.windowToken,0)
+    }
+
+
+
     private fun initListeners() {
         binding.btnLogin.setOnClickListener {
             loginUser()
+            closeKeyboard(binding.btnLogin)
         }
         binding.btnSingUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)

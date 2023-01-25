@@ -1,11 +1,13 @@
 package com.study.englishit.ui.presentation.sign_up
 
+import android.content.Context
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -135,6 +137,11 @@ class SignUpFragment : Fragment() {
 
     }
 
+    private fun closeKeyboard(view: View){
+        val imn = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imn.hideSoftInputFromWindow(view.windowToken,0)
+    }
+
     private fun initListeners() {
         binding.btnBack.setOnClickListener {
             activity?.onBackPressedDispatcher?.onBackPressed()
@@ -142,6 +149,7 @@ class SignUpFragment : Fragment() {
         binding.btnSignUp.setOnClickListener {
             if (isUserDataOk()) {
                 viewModel.signUp(createUser(), binding.etPassword.text.toString())
+                closeKeyboard(binding.btnSignUp)
             }
         }
     }
