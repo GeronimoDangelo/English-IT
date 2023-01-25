@@ -7,11 +7,11 @@
     tools:context=".ui.presentation.home.HomeActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home Screen"
-        android:textSize="30sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

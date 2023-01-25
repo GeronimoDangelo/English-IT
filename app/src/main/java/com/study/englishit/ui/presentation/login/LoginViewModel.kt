@@ -1,5 +1,7 @@
 package com.study.englishit.ui.presentation.login
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.study.englishit.domain.use_cases.login.GetUserDataUseCase
@@ -18,15 +20,15 @@ class LoginViewModel @Inject constructor(
     private val getUserDataUseCase: GetUserDataUseCase,
 ) : ViewModel() {
 
-    private val _loginState: MutableStateFlow<Result<Boolean>> = MutableStateFlow(Result.Empty)
-    val loginState: StateFlow<Result<Boolean>> = _loginState.asStateFlow()
+    private val _loginState: MutableLiveData<Result<Boolean>> = MutableLiveData()
+    val loginState: LiveData<Result<Boolean>> = _loginState
 
 
-    private val _logOut: MutableStateFlow<Result<Boolean>> = MutableStateFlow(Result.Empty)
-    val logOut: StateFlow<Result<Boolean>> = _logOut.asStateFlow()
+    private val _logOut: MutableLiveData<Result<Boolean>> = MutableLiveData()
+    val logOut: LiveData<Result<Boolean>> = _logOut
 
-    private val _userResult: MutableStateFlow<Result<Boolean>> = MutableStateFlow(Result.Empty)
-    val userResult: StateFlow<Result<Boolean>> = _userResult.asStateFlow()
+    private val _userResult: MutableLiveData<Result<Boolean>> = MutableLiveData()
+    val userResult: LiveData<Result<Boolean>> = _userResult
 
     fun login(email: String, password: String) {
         viewModelScope.launch {

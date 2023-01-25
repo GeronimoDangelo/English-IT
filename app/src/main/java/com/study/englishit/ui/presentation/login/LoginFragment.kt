@@ -2,6 +2,7 @@ package com.study.englishit.ui.presentation.login
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,8 @@ import androidx.navigation.fragment.findNavController
 import com.study.englishit.R
 import com.study.englishit.databinding.FragmentLoginBinding
 import com.study.englishit.ui.presentation.home.HomeActivity
+import com.study.englishit.util.Constants.SHARED_EMAIL
+import com.study.englishit.util.Constants.SHARED_PASSWORD
 import com.study.englishit.util.Constants.USER_NOT_EXIST
 import com.study.englishit.util.Constants.WRONG_PASSWORD
 import com.study.englishit.util.Result
@@ -22,6 +25,7 @@ import com.study.englishit.util.isInputEmpty
 import com.study.englishit.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -30,6 +34,11 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewmodel: LoginViewModel by viewModels()
+
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -41,7 +50,6 @@ class LoginFragment : Fragment() {
 
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
@@ -50,51 +58,64 @@ class LoginFragment : Fragment() {
     }
 
 
-
-
-
-
-
     private fun initObservers() {
-        lifecycleScope.launchWhenStarted {
-            viewmodel.loginState.collectLatest { result ->
-                when (result) {
-                    is Result.Success<Boolean> -> {
-                        viewmodel.getUserData()
-                    }
-                    is Result.Error -> {
-                        hideProgressDialog()
-                        manageLoginErrorMessages(result.exception)
-                    }
-                    is Result.Loading -> {
-                        showProgressBar()
-                    }
-                    else -> Unit
+        viewmodel.loginState.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Result.Success<Boolean> -> {
+                    viewmodel.getUserData()
                 }
+                is Result.Error -> {
+                    hideProgressDialog()
+                    manageLoginErrorMessages(result.exception)
+                }
+                is Result.Loading -> {
+                    showProgressBar()
+                }
+                else -> Unit
             }
         }
 
 
-        lifecycleScope.launchWhenStarted {
-            viewmodel.userResult.collectLatest { result ->
-                when (result) {
-                    is Result.Success<Boolean> -> {
-                        hideProgressDialog()
-                        startActivity(Intent(requireContext(), HomeActivity::class.java))
-                        activity?.finish()
-                    }
-                    is Result.Error -> {
-                        hideProgressDialog()
-                        manageLoginErrorMessages(result.exception)
-                    }
-                    is Result.Loading -> {
-                        showProgressBar()
-                    }
-                    else -> Unit
+
+
+        viewmodel.userResult.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Result.Success<Boolean> -> {
+                    hideProgressDialog()
+                    manageUserLogin()
+                    startActivity(Intent(requireContext(), HomeActivity::class.java))
+                    activity?.finish()
                 }
+                is Result.Error -> {
+                    hideProgressDialog()
+                    manageLoginErrorMessages(result.exception)
+                }
+                is Result.Loading -> {
+                    showProgressBar()
+                }
+                else -> Unit
             }
+        }
+
+    }
+
+    private fun manageUserLogin() {
+        sharedPreferences.edit().putString(SHARED_EMAIL,binding.etEmail.text.toString().trim()).apply()
+        sharedPreferences.edit().putString(SHARED_PASSWORD,binding.etPassword.text.toString().trim()).apply()
+    }
+
+
+    private fun initListeners() {
+        binding.btnLogin.setOnClickListener {
+            loginUser()
+            closeKeyboard(binding.btnLogin)
+        }
+        binding.btnSingUp.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+
         }
     }
+
 
     private fun loginUser() {
         if (isUserDataOk()) {
@@ -124,9 +145,6 @@ class LoginFragment : Fragment() {
     }
 
 
-
-
-
     private fun showProgressBar() {
         binding.btnLogin.text = "..."
         binding.btnLogin.isEnabled = false
@@ -153,21 +171,10 @@ class LoginFragment : Fragment() {
         binding.btnLogin.isEnabled = true
     }
 
-    private fun closeKeyboard(view: View){
+    private fun closeKeyboard(view: View) {
         val imn = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imn.hideSoftInputFromWindow(view.windowToken,0)
+        imn.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
 
-
-    private fun initListeners() {
-        binding.btnLogin.setOnClickListener {
-            loginUser()
-            closeKeyboard(binding.btnLogin)
-        }
-        binding.btnSingUp.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
-
-        }
-    }
 }
