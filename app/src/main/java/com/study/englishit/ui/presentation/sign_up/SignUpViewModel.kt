@@ -21,11 +21,11 @@ class SignUpViewModel @Inject constructor(
 
 ) : ViewModel() {
 
-    private val _signUpState: MutableStateFlow<Result<User>> = MutableStateFlow(Result.Empty)
-    val signUpState: StateFlow<Result<User>> = _signUpState.asStateFlow()
+    private val _signUpState: MutableLiveData<Result<User>> = MutableLiveData()
+    val signUpState: LiveData<Result<User>> = _signUpState
 
-    private val _saveUserState: MutableStateFlow<Result<Boolean>> = MutableStateFlow(Result.Empty)
-    val saveUserState: StateFlow<Result<Boolean>> = _saveUserState.asStateFlow()
+    private val _saveUserState: MutableLiveData<Result<Boolean>> = MutableLiveData()
+    val saveUserState: LiveData<Result<Boolean>> = _saveUserState
 
 
     fun signUp(user: User, password: String) {

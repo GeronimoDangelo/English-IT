@@ -46,45 +46,41 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initObservers() {
-        lifecycleScope.launchWhenStarted {
-            viewModel.signUpState.collectLatest { result ->
-                when (result) {
-                    is Result.Success<User> -> {
-                        viewModel.saveUser(user = result.data)
-                    }
-                    is Result.Error -> {
-                        hideProgressDialog()
-                        manageRegisterErrorMessages(result.exception)
-                    }
-                    is Result.Loading -> {
-                        showProgressBar()
-                    }
-                    else -> Unit
+        viewModel.signUpState.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Result.Success<User> -> {
+                    viewModel.saveUser(user = result.data)
                 }
+                is Result.Error -> {
+                    hideProgressDialog()
+                    manageRegisterErrorMessages(result.exception)
+                }
+                is Result.Loading -> {
+                    showProgressBar()
+                }
+                else -> Unit
             }
         }
 
 
-        lifecycleScope.launchWhenStarted {
-
-            viewModel.saveUserState.collectLatest { result ->
-                when (result) {
-                    is Result.Success<Boolean> -> {
-                        activity?.toast(getString(R.string.signup__signup_successfully))
-                        activity?.onBackPressedDispatcher?.onBackPressed()
-                    }
-                    is Result.Error -> {
-                        hideProgressDialog()
-                        manageRegisterErrorMessages(result.exception)
-                    }
-                    is Result.Loading -> {
-                        showProgressBar()
-                    }
-                    else -> {}
+        viewModel.saveUserState.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Result.Success<Boolean> -> {
+                    activity?.toast(getString(R.string.signup__signup_successfully))
+                    activity?.onBackPressedDispatcher?.onBackPressed()
                 }
-
+                is Result.Error -> {
+                    hideProgressDialog()
+                    manageRegisterErrorMessages(result.exception)
+                }
+                is Result.Loading -> {
+                    showProgressBar()
+                }
+                else -> {}
             }
+
         }
+
 
     }
 
@@ -137,9 +133,9 @@ class SignUpFragment : Fragment() {
 
     }
 
-    private fun closeKeyboard(view: View){
+    private fun closeKeyboard(view: View) {
         val imn = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imn.hideSoftInputFromWindow(view.windowToken,0)
+        imn.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun initListeners() {
