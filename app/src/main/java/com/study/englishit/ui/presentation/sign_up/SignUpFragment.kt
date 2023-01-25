@@ -1,22 +1,25 @@
 package com.study.englishit.ui.presentation.sign_up
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.study.englishit.R
 import com.study.englishit.databinding.FragmentSignUpBinding
 import com.study.englishit.domain.model.User
 import com.study.englishit.util.Constants.EMAIL_ALREADY_EXISTS
-import com.study.englishit.util.DataState
+import com.study.englishit.util.Result
 import com.study.englishit.util.isInputEmpty
 import com.study.englishit.util.toast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class SignUpFragment : Fragment() {
@@ -43,38 +46,46 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initObservers() {
-        viewModel.signUpState.observe(viewLifecycleOwner, Observer { dataState ->
-            when (dataState) {
-                is DataState.Success<User> -> {
-                    viewModel.saveUser(user = dataState.data)
+        lifecycleScope.launchWhenStarted {
+            viewModel.signUpState.collectLatest { result ->
+                when (result) {
+                    is Result.Success<User> -> {
+                        viewModel.saveUser(user = result.data)
+                    }
+                    is Result.Error -> {
+                        hideProgressDialog()
+                        manageRegisterErrorMessages(result.exception)
+                    }
+                    is Result.Loading -> {
+                        showProgressBar()
+                    }
+                    else -> Unit
                 }
-                is DataState.Error -> {
-                    hideProgressDialog()
-                    manageRegisterErrorMessages(dataState.exception)
-                }
-                is DataState.Loading -> {
-                    showProgressBar()
-                }
-                else -> Unit
             }
-        })
+        }
 
-        viewModel.saveUserState.observe(viewLifecycleOwner, Observer { dataState ->
-            when (dataState) {
-                is DataState.Success<Boolean> -> {
-                    activity?.toast(getString(R.string.signup__signup_successfully))
-                    activity?.onBackPressedDispatcher?.onBackPressed()
+
+        lifecycleScope.launchWhenStarted {
+
+            viewModel.saveUserState.collectLatest { result ->
+                when (result) {
+                    is Result.Success<Boolean> -> {
+                        activity?.toast(getString(R.string.signup__signup_successfully))
+                        activity?.onBackPressedDispatcher?.onBackPressed()
+                    }
+                    is Result.Error -> {
+                        hideProgressDialog()
+                        manageRegisterErrorMessages(result.exception)
+                    }
+                    is Result.Loading -> {
+                        showProgressBar()
+                    }
+                    else -> {}
                 }
-                is DataState.Error -> {
-                    hideProgressDialog()
-                    manageRegisterErrorMessages(dataState.exception)
-                }
-                is DataState.Loading -> {
-                    showProgressBar()
-                }
-                else -> {}
+
             }
-        })
+        }
+
     }
 
 
@@ -126,22 +137,27 @@ class SignUpFragment : Fragment() {
 
     }
 
+    private fun closeKeyboard(view: View){
+        val imn = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imn.hideSoftInputFromWindow(view.windowToken,0)
+    }
+
     private fun initListeners() {
         binding.btnBack.setOnClickListener {
             activity?.onBackPressedDispatcher?.onBackPressed()
         }
         binding.btnSignUp.setOnClickListener {
-            if (isUserDataOk()){
-                viewModel.signUp(createUser(),binding.etPassword.text.toString())
+            if (isUserDataOk()) {
+                viewModel.signUp(createUser(), binding.etPassword.text.toString())
+                closeKeyboard(binding.btnSignUp)
             }
         }
     }
 
-    private fun setupPolicyLink(){
+    private fun setupPolicyLink() {
         val tvLinkPolicy = binding.tvLinkPolicy
         tvLinkPolicy.movementMethod = LinkMovementMethod.getInstance()
     }
-
 
 
 }
