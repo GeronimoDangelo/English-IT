@@ -2,20 +2,19 @@ package com.study.englishit.ui.presentation
 
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
-import com.study.englishit.R
+import androidx.appcompat.app.AppCompatActivity
 import com.study.englishit.ui.presentation.home.HomeActivity
 import com.study.englishit.ui.presentation.login.LoginActivity
 import com.study.englishit.ui.presentation.login.LoginViewModel
 import com.study.englishit.util.Constants.SHARED_EMAIL
 import com.study.englishit.util.Constants.SHARED_PASSWORD
-import com.study.englishit.util.Result
+import com.study.englishit.util.DataState
 import com.study.englishit.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
@@ -28,7 +27,6 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initObservers()
-
         if (userIsLogged()) {
             viewmodel.login(getSavedEmail()!!, getSavedPassword()!!)
         } else {
@@ -40,11 +38,10 @@ class SplashActivity : AppCompatActivity() {
     private fun initObservers() {
         viewmodel.loginState.observe(this) { result ->
             when (result) {
-                is Result.Success<Boolean> -> {
+                is DataState.Success<Boolean> -> {
                     viewmodel.getUserData()
-
                 }
-                is Result.Error -> {
+                is DataState.Error -> {
                     toast("las contraseñas no son validas")
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
@@ -53,13 +50,13 @@ class SplashActivity : AppCompatActivity() {
             }
         }
 
-        viewmodel.userResult.observe(this) { result ->
+        viewmodel.userDataState.observe(this) { result ->
             when (result) {
-                is Result.Success<Boolean> -> {
+                is DataState.Success<Boolean> -> {
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 }
-                is Result.Error -> {
+                is DataState.Error -> {
                     toast("las contraseñas no son validas")
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
@@ -67,6 +64,7 @@ class SplashActivity : AppCompatActivity() {
                 else -> Unit
             }
         }
+
 
     }
 

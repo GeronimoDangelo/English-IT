@@ -8,8 +8,9 @@ import com.study.englishit.di.FirebaseModule
 import com.study.englishit.domain.model.User
 import com.study.englishit.domain.repository.LoginRepository
 import com.study.englishit.util.Constants.INFO_NOT_SET
+import com.study.englishit.util.Constants.USER_EMAIL_GET
 import com.study.englishit.util.Constants.USER_LOGGED_IN_ID
-import com.study.englishit.util.Result
+import com.study.englishit.util.DataState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
@@ -21,24 +22,24 @@ class LoginRepositoryImpl @Inject constructor(
 ) : LoginRepository {
 
 
-    override suspend fun login(email: String, password: String): Flow<Result<Boolean>> = flow {
-        emit(Result.Loading)
+    override suspend fun login(email: String, password: String): Flow<DataState<Boolean>> = flow {
+        emit(DataState.Loading)
         try {
             var isSuccessful = false
             auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener { isSuccessful = true }
                 .addOnFailureListener { isSuccessful = false }
                 .await()
-            emit(Result.Success(isSuccessful))
-            emit(Result.Finished)
+            emit(DataState.Success(isSuccessful))
+            emit(DataState.Finished)
         } catch (e: Exception) {
-            emit(Result.Error(e))
-            emit(Result.Finished)
+            emit(DataState.Error(e))
+            emit(DataState.Finished)
         }
     }
 
-    override suspend fun signUp(user: User, password: String): Flow<Result<User>> = flow {
-        emit(Result.Loading)
+    override suspend fun signUp(user: User, password: String): Flow<DataState<User>> = flow {
+        emit(DataState.Loading)
         try {
             lateinit var exception: Exception
             var registeredUser = User()
@@ -61,37 +62,37 @@ class LoginRepositoryImpl @Inject constructor(
             //now if the user is register successfully we are gonna emit to the flow value (boolean)
             // that is true and we are gonna pass that user to the flow
             if (registeredUser.id != INFO_NOT_SET) {
-                emit(Result.Success(registeredUser))
-                emit(Result.Finished)
+                emit(DataState.Success(registeredUser))
+                emit(DataState.Finished)
             }
             //this the the last else branch
             else {
-                emit(Result.Error(exception))
-                emit(Result.Finished)
+                emit(DataState.Error(exception))
+                emit(DataState.Finished)
             }
 
         } catch (e: Exception) {
-            emit(Result.Error(e))
-            emit(Result.Finished)
+            emit(DataState.Error(e))
+            emit(DataState.Finished)
         }
     }
 
-    override suspend fun logOut(): Flow<Result<Boolean>> = flow {
-        emit(Result.Loading)
+    override suspend fun logOut(): Flow<DataState<Boolean>> = flow {
+        emit(DataState.Loading)
         try {
             auth.signOut()
-            emit(Result.Success(true))
-            emit(Result.Finished)
+            emit(DataState.Success(true))
+            emit(DataState.Finished)
         } catch (e: Exception) {
-            emit(Result.Error(e))
-            emit(Result.Finished)
+            emit(DataState.Error(e))
+            emit(DataState.Finished)
         }
     }
 
-    override suspend fun getUserData(): Flow<Result<Boolean>> = flow {
+    override suspend fun getUserData(): Flow<DataState<Boolean>> = flow {
         var requestStatus = false
         val currentUser = auth.currentUser
-        emit(Result.Loading)
+        emit(DataState.Loading)
         try {
             currentUser?.uid?.let {
                 usersCollection.document(it)
@@ -100,31 +101,32 @@ class LoginRepositoryImpl @Inject constructor(
                         val user = document.toObject(User::class.java)!!
                         requestStatus = true
                         USER_LOGGED_IN_ID = user.id
+                        USER_EMAIL_GET = user.email
                     }
                     .addOnFailureListener {
                         requestStatus = false
                     }.await()
-                emit(Result.Success(requestStatus))
-                emit(Result.Finished)
+                emit(DataState.Success(requestStatus))
+                emit(DataState.Finished)
             }
         } catch (e: Exception) {
-            emit(Result.Error(e))
-            emit(Result.Finished)
+            emit(DataState.Error(e))
+            emit(DataState.Finished)
         }
     }
 
-    override suspend fun saveUser(user: User): Flow<Result<Boolean>> = flow {
-        emit(Result.Loading)
+    override suspend fun saveUser(user: User): Flow<DataState<Boolean>> = flow {
+        emit(DataState.Loading)
         try {
             var uploadStatus = false
             usersCollection.document(user.id).set(user, SetOptions.merge())
                 .addOnSuccessListener { uploadStatus = true }
                 .addOnFailureListener { uploadStatus = false }.await()
-            emit(Result.Success(uploadStatus))
-            emit(Result.Finished)
+            emit(DataState.Success(uploadStatus))
+            emit(DataState.Finished)
         } catch (e: Exception) {
-            emit(Result.Error(e))
-            emit(Result.Finished)
+            emit(DataState.Error(e))
+            emit(DataState.Finished)
         }
     }
 }

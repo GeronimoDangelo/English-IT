@@ -9,17 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import com.study.englishit.R
 import com.study.englishit.databinding.FragmentSignUpBinding
 import com.study.englishit.domain.model.User
 import com.study.englishit.util.Constants.EMAIL_ALREADY_EXISTS
-import com.study.englishit.util.Result
+import com.study.englishit.util.DataState
 import com.study.englishit.util.isInputEmpty
 import com.study.englishit.util.toast
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class SignUpFragment : Fragment() {
@@ -48,14 +45,14 @@ class SignUpFragment : Fragment() {
     private fun initObservers() {
         viewModel.signUpState.observe(viewLifecycleOwner) { result ->
             when (result) {
-                is Result.Success<User> -> {
+                is DataState.Success<User> -> {
                     viewModel.saveUser(user = result.data)
                 }
-                is Result.Error -> {
+                is DataState.Error -> {
                     hideProgressDialog()
                     manageRegisterErrorMessages(result.exception)
                 }
-                is Result.Loading -> {
+                is DataState.Loading -> {
                     showProgressBar()
                 }
                 else -> Unit
@@ -65,15 +62,15 @@ class SignUpFragment : Fragment() {
 
         viewModel.saveUserState.observe(viewLifecycleOwner) { result ->
             when (result) {
-                is Result.Success<Boolean> -> {
+                is DataState.Success<Boolean> -> {
                     activity?.toast(getString(R.string.signup__signup_successfully))
                     activity?.onBackPressedDispatcher?.onBackPressed()
                 }
-                is Result.Error -> {
+                is DataState.Error -> {
                     hideProgressDialog()
                     manageRegisterErrorMessages(result.exception)
                 }
-                is Result.Loading -> {
+                is DataState.Loading -> {
                     showProgressBar()
                 }
                 else -> {}

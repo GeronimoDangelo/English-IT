@@ -15,7 +15,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginBinding.inflate(layoutInflater)
-        setTheme(R.style.Theme_EnglishIT)
         val screen = binding.root
         setContentView(screen)
     }

@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.study.englishit.domain.use_cases.login.GetUserDataUseCase
 import com.study.englishit.domain.use_cases.logout.LogOutUseCase
 import com.study.englishit.domain.use_cases.login.LoginUseCase
-import com.study.englishit.util.Result
+import com.study.englishit.util.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -20,15 +20,15 @@ class LoginViewModel @Inject constructor(
     private val getUserDataUseCase: GetUserDataUseCase,
 ) : ViewModel() {
 
-    private val _loginState: MutableLiveData<Result<Boolean>> = MutableLiveData()
-    val loginState: LiveData<Result<Boolean>> = _loginState
+    private val _loginState: MutableLiveData<DataState<Boolean>> = MutableLiveData()
+    val loginState: LiveData<DataState<Boolean>> = _loginState
 
 
-    private val _logOut: MutableLiveData<Result<Boolean>> = MutableLiveData()
-    val logOut: LiveData<Result<Boolean>> = _logOut
+    private val _logOut: MutableLiveData<DataState<Boolean>> = MutableLiveData()
+    val logOutState: LiveData<DataState<Boolean>> = _logOut
 
-    private val _userResult: MutableLiveData<Result<Boolean>> = MutableLiveData()
-    val userResult: LiveData<Result<Boolean>> = _userResult
+    private val _userDataState: MutableLiveData<DataState<Boolean>> = MutableLiveData()
+    val userDataState: LiveData<DataState<Boolean>> = _userDataState
 
     fun login(email: String, password: String) {
         viewModelScope.launch {
@@ -49,7 +49,7 @@ class LoginViewModel @Inject constructor(
     fun getUserData() {
         viewModelScope.launch {
             getUserDataUseCase().onEach { dataState ->
-                _userResult.value = dataState
+                _userDataState.value = dataState
             }.launchIn(viewModelScope)
         }
     }
