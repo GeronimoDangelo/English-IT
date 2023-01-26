@@ -40,14 +40,17 @@
 
             <ImageView
                 android:id="@+id/fox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="0dp"
                 android:src="@drawable/logo"
                 app:layout_constraintBottom_toTopOf="@id/textView"
                 app:layout_constraintEnd_toEndOf="@id/textView2"
                 app:layout_constraintStart_toStartOf="@id/textView2"
-                app:layout_constraintTop_toBottomOf="@id/textView2" />
+                app:layout_constraintTop_toBottomOf="@id/textView2"
+                android:contentDescription="logo" />
+
+
 
 
             <TextView
@@ -105,6 +108,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tilEmail"
                 app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/text_color_hint"
                 app:startIconDrawable="@drawable/password"
                 app:startIconTint="@color/text_icon_hint">
 
@@ -118,14 +122,28 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/forgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
+                android:paddingEnd="2dp"
+                android:fontFamily="@font/poppins_lightitalic"
+                android:textColor="@color/white"
+                android:clickable="true"
+                android:text="Olvidaste tu contraseña?"
+                app:layout_constraintEnd_toEndOf="@id/btnLogin"
+                app:layout_constraintTop_toBottomOf="@id/tilPassword"
+                android:focusable="true" />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
                 style="@style/btnLoginStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cornerRadius="15dp"
                 android:layout_marginHorizontal="36dp"
-                android:layout_marginTop="20dp"
                 android:background="@color/btnLogin"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/login__login_button"
@@ -134,7 +152,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"

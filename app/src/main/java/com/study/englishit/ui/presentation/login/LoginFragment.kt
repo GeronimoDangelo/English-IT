@@ -8,10 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.study.englishit.R
 import com.study.englishit.databinding.FragmentLoginBinding
@@ -20,11 +18,10 @@ import com.study.englishit.util.Constants.SHARED_EMAIL
 import com.study.englishit.util.Constants.SHARED_PASSWORD
 import com.study.englishit.util.Constants.USER_NOT_EXIST
 import com.study.englishit.util.Constants.WRONG_PASSWORD
-import com.study.englishit.util.Result
+import com.study.englishit.util.DataState
 import com.study.englishit.util.isInputEmpty
 import com.study.englishit.util.toast
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -54,56 +51,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
         initListeners()
-
     }
-
-
-    private fun initObservers() {
-        viewmodel.loginState.observe(viewLifecycleOwner) { result ->
-            when (result) {
-                is Result.Success<Boolean> -> {
-                    viewmodel.getUserData()
-                }
-                is Result.Error -> {
-                    hideProgressDialog()
-                    manageLoginErrorMessages(result.exception)
-                }
-                is Result.Loading -> {
-                    showProgressBar()
-                }
-                else -> Unit
-            }
-        }
-
-
-
-
-        viewmodel.userResult.observe(viewLifecycleOwner) { result ->
-            when (result) {
-                is Result.Success<Boolean> -> {
-                    hideProgressDialog()
-                    manageUserLogin()
-                    startActivity(Intent(requireContext(), HomeActivity::class.java))
-                    activity?.finish()
-                }
-                is Result.Error -> {
-                    hideProgressDialog()
-                    manageLoginErrorMessages(result.exception)
-                }
-                is Result.Loading -> {
-                    showProgressBar()
-                }
-                else -> Unit
-            }
-        }
-
-    }
-
-    private fun manageUserLogin() {
-        sharedPreferences.edit().putString(SHARED_EMAIL,binding.etEmail.text.toString().trim()).apply()
-        sharedPreferences.edit().putString(SHARED_PASSWORD,binding.etPassword.text.toString().trim()).apply()
-    }
-
 
     private fun initListeners() {
         binding.btnLogin.setOnClickListener {
@@ -114,7 +62,64 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
 
         }
+        binding.forgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_recoveryPasswordFragment)
+        }
     }
+
+
+    private fun initObservers() {
+
+        viewmodel.loginState.observe(viewLifecycleOwner) { dataState ->
+            when (dataState) {
+                is DataState.Success<Boolean> -> {
+                    viewmodel.getUserData()
+                }
+                is DataState.Error -> {
+                    hideProgressDialog()
+                    manageLoginErrorMessages(dataState.exception)
+                }
+                is DataState.Loading -> {
+                    showProgressBar()
+                }
+                else -> Unit
+            }
+        }
+
+        viewmodel.userDataState.observe(viewLifecycleOwner) { dataState ->
+            when (dataState) {
+                is DataState.Success<Boolean> -> {
+                    hideProgressDialog()
+                    manageUserLogin()
+                    startActivity(Intent(requireContext(), HomeActivity::class.java))
+                    activity?.finish()
+                }
+                is DataState.Error -> {
+                    hideProgressDialog()
+                    manageLoginErrorMessages(dataState.exception)
+                }
+                is DataState.Loading -> {
+                    showProgressBar()
+                }
+                else -> Unit
+            }
+        }
+
+
+
+    }
+
+    private fun manageUserLogin() {
+
+        val email = binding.etEmail.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+
+        sharedPreferences.edit().putString(SHARED_EMAIL, email).apply()
+        sharedPreferences.edit().putString(SHARED_PASSWORD, password).apply()
+    }
+
+
+
 
 
     private fun loginUser() {

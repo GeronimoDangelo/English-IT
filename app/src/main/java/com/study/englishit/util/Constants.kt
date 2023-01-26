@@ -11,6 +11,7 @@ object Constants {
     const val EMAIL_ALREADY_EXISTS : String = "com.google.firebase.auth.FirebaseAuthUserCollisionException: The email address is already in use by another account."
 
     var USER_LOGGED_IN_ID = USER_NOT_LOGGED
+    var USER_EMAIL_GET = "user_email"
     const val SHARED_PREFERENCES_NAME = "shared_preferences_name"
 
     const val SHARED_EMAIL = "shared_email"
