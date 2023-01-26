@@ -51,7 +51,6 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
         initListeners()
-
     }
 
     private fun initListeners() {
@@ -62,6 +61,9 @@ class LoginFragment : Fragment() {
         binding.btnSingUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
 
+        }
+        binding.forgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_recoveryPasswordFragment)
         }
     }
 

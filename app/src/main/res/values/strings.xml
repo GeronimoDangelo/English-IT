@@ -29,6 +29,9 @@
     <string name="registrarme">Registrarme</string>
     <string name="policy">Al registrarte estas aceptando todas </string>
     <string name="policy_2"><a href="https://www.termsfeed.com/live/dd1abf75-8f58-489f-b80a-32f1fef4c416">nuestras politicas de privacidad y derechos de autor. </a></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send_recovery_password">Send recovery password</string>
 
 
 </resources>
