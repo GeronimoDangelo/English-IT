@@ -7,13 +7,15 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-class RecoverPasswordUseCase @Inject constructor() {
+class RecoverPasswordUseCase @Inject constructor(
+    private val firebaseAuth: FirebaseAuth
+) {
 
     suspend operator fun invoke(email: String): Flow<DataState<Boolean>> = flow {
         try {
             emit(DataState.Loading)
             var isSuccessful = false
-            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+            firebaseAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener { isSuccessful = it.isSuccessful }
                 .await()
             emit(DataState.Success(isSuccessful))
