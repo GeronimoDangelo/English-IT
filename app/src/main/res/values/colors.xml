@@ -13,6 +13,7 @@
     <color name="text_icon_hint">#7A000000</color>
     <color name="text_input">#445B5F</color>
     <color name="btnLogin">#D8683E</color>
+    <color name="btnLoginWithGoogle">#FFFFFF</color>
     <color name="btnSignUp">#D8683E</color>
     <color name="link">#D8683E</color>
     <color name="btnSignUpFromLogin">#A44D2C</color>
