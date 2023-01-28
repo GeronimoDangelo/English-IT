@@ -9,6 +9,9 @@
     <style name="btnLoginStyle" parent="Widget.MaterialComponents.CircularProgressIndicator">
         <item name="backgroundTint">@color/btnLogin</item>
     </style>
+    <style name="btnLoginWithGoogle" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="backgroundTint">@color/btnLoginWithGoogle</item>
+    </style>
 
     <style name="btnSignUpStyle" parent="Widget.MaterialComponents.CircularProgressIndicator">
         <item name="backgroundTint">@color/btnSignUp</item>
