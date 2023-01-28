@@ -2,6 +2,9 @@ package com.study.englishit.ui.presentation.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.study.englishit.R
 import com.study.englishit.databinding.ActivityHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,6 +17,13 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         val screen = binding.root
         setContentView(screen)
+
+
+        NavigationUI.setupWithNavController(
+            binding.bottomNavMenu,
+            findNavController(R.id.fragmentActivityHome)
+        )
+
     }
 
 
