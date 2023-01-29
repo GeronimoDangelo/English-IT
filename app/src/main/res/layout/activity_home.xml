@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bghome"
     tools:context=".ui.presentation.home.HomeActivity">
 
     <fragment
         android:id="@+id/fragmentActivityHome"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,11 +24,19 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="0dp"
+        android:id="@+id/bottomNavMenu"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/bottom_nav_shape"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/whiteMoreTransparent"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="@+id/fragmentActivityHome"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/home_bottom_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

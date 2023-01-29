@@ -32,6 +32,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="send_recovery_password">Send recovery password</string>
+    <string name="card_image_withouth_importace">card image withouth importace</string>
 
 
 </resources>
