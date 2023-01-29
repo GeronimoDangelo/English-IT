@@ -16,7 +16,9 @@
     <color name="bgHomeNav">#F28D42</color>
     <color name="btnLoginWithGoogle">#FFFFFF</color>
     <color name="btnSignUp">#D8683E</color>
+    <color name="titleItemColor">#C8423E3C</color>
     <color name="link">#D8683E</color>
     <color name="btnSignUpFromLogin">#A44D2C</color>
     <color name="topBar">#1A151E</color>
+    <color name="transparent">#001A151E</color>
 </resources>

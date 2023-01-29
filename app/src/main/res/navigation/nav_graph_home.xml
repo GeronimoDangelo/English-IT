@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.study.englishit.ui.presentation.home.SettingsFragment"
+        android:name="com.study.englishit.ui.presentation.navigation_screens.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings">
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/itemsSavedFragment"
-        android:name="com.study.englishit.ui.presentation.home.ItemsSavedFragment"
+        android:name="com.study.englishit.ui.presentation.navigation_screens.ItemsSavedFragment"
         android:label="fragment_items_saved"
         tools:layout="@layout/fragment_items_saved" >
         <action
