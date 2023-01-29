@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_itemsSavedFragment"
+            app:destination="@id/itemsSavedFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -23,10 +26,20 @@
         <action
             android:id="@+id/action_settingsFragment_to_itemsSavedFragment"
             app:destination="@id/itemsSavedFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemsSavedFragment"
         android:name="com.study.englishit.ui.presentation.home.ItemsSavedFragment"
         android:label="fragment_items_saved"
-        tools:layout="@layout/fragment_items_saved" />
+        tools:layout="@layout/fragment_items_saved" >
+        <action
+            android:id="@+id/action_itemsSavedFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_itemsSavedFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 </navigation>
