@@ -17,6 +17,7 @@
         android:textSize="40sp"
         tools:itemCount="3"
         android:clipToPadding="false"
+        android:paddingTop="50dp"
         android:paddingBottom="120dp"
         tools:listitem="@layout/card_item">
     </androidx.recyclerview.widget.RecyclerView>
