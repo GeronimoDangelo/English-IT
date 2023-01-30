@@ -15,8 +15,8 @@ object DataModule {
 
     @Singleton
     @Provides
-    fun provideTitlesToItems() : List<CardItemModel>{
-        return listOf(
+    fun provideTitlesToItems() : MutableList<CardItemModel>{
+        return mutableListOf(
             CardItemModel(id= 1 ,  "Level 1", img = R.drawable.image1),
             CardItemModel(id= 2 ,  "Intermediate 2",img = R.drawable.image2),
             CardItemModel(id= 3 ,  "Advanced 3",img = R.drawable.image3),
