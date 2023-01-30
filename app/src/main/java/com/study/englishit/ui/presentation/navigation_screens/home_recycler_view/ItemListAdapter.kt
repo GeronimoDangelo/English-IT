@@ -1,8 +1,7 @@
-package com.study.englishit.ui.presentation.navigation_screens.recycler_view
+package com.study.englishit.ui.presentation.navigation_screens.home_recycler_view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.study.englishit.databinding.CardItemBinding
@@ -12,7 +11,6 @@ class ItemListAdapter(): ListAdapter<CardItemModel,ItemViewHolder<*>>(DiffUtilCa
 
     private object DiffUtilCallBack : DiffUtil.ItemCallback<CardItemModel>() {
         override fun areItemsTheSame(oldItem: CardItemModel, newItem: CardItemModel): Boolean = oldItem.id == newItem.id
-
         override fun areContentsTheSame(oldItem: CardItemModel, newItem: CardItemModel): Boolean = oldItem.hashCode() == newItem.hashCode()
 
     }
