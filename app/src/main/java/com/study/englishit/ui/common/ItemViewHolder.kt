@@ -1,4 +1,4 @@
-package com.study.englishit.ui.presentation.navigation_screens.home_recycler_view
+package com.study.englishit.ui.common
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

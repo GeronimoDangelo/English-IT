@@ -9,8 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.study.englishit.databinding.FragmentHomeBinding
 import com.study.englishit.domain.model.CardItemModel
-import com.study.englishit.ui.presentation.navigation_screens.home_recycler_view.ItemListAdapter
-import com.study.englishit.util.toast
+import com.study.englishit.ui.presentation.navigation_screens.adapters.ItemListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -46,8 +45,9 @@ class HomeFragment : Fragment() {
         itemListAdapter.setCardItemClickListener {
             //here's goes the put extra
             val intent = Intent(requireContext(),DetailsActivity::class.java)
-            intent.putExtra("details",it.title)
-            intent.putExtra("detailsInt",it.img)
+            intent.putExtra("title",it.title)
+            intent.putExtra("img",it.img)
+            intent.putExtra("id",it.id)
             startActivity(intent)
         }
     }
