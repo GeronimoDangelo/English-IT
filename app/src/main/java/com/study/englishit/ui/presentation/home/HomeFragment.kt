@@ -45,8 +45,9 @@ class HomeFragment : Fragment() {
         itemListAdapter.setCardItemClickListener {
             //here's goes the put extra
             val intent = Intent(requireContext(),DetailsActivity::class.java)
-            intent.putExtra("details",it.title)
-            intent.putExtra("detailsInt",it.img)
+            intent.putExtra("title",it.title)
+            intent.putExtra("img",it.img)
+            intent.putExtra("id",it.id)
             startActivity(intent)
         }
     }

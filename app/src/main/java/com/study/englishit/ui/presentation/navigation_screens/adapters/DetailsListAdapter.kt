@@ -11,7 +11,7 @@ import com.study.englishit.ui.common.ItemViewHolder
 class DetailsListAdapter() : ListAdapter<PhrasesModel,ItemViewHolder<*>>(DiffUtilCallBack) {
 
     private object DiffUtilCallBack : DiffUtil.ItemCallback<PhrasesModel>() {
-        override fun areItemsTheSame(oldItem: PhrasesModel, newItem: PhrasesModel): Boolean = oldItem == newItem
+        override fun areItemsTheSame(oldItem: PhrasesModel, newItem: PhrasesModel): Boolean = oldItem.id == newItem.id
         override fun areContentsTheSame(oldItem: PhrasesModel, newItem: PhrasesModel): Boolean = oldItem.hashCode() == newItem.hashCode()
 
     }
