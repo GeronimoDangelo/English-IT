@@ -1,4 +1,4 @@
-package com.study.englishit.ui.presentation.navigation_screens.home_recycler_view
+package com.study.englishit.ui.presentation.navigation_screens.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.study.englishit.databinding.CardItemBinding
 import com.study.englishit.domain.model.CardItemModel
+import com.study.englishit.ui.common.ItemViewHolder
 
-class ItemListAdapter(): ListAdapter<CardItemModel,ItemViewHolder<*>>(DiffUtilCallBack){
+class ItemListAdapter(): ListAdapter<CardItemModel, ItemViewHolder<*>>(DiffUtilCallBack){
 
     private object DiffUtilCallBack : DiffUtil.ItemCallback<CardItemModel>() {
         override fun areItemsTheSame(oldItem: CardItemModel, newItem: CardItemModel): Boolean = oldItem.id == newItem.id
@@ -31,7 +32,7 @@ class ItemListAdapter(): ListAdapter<CardItemModel,ItemViewHolder<*>>(DiffUtilCa
 
     inner class BindViewHolderList(private val itemBinding: CardItemBinding): ItemViewHolder<CardItemModel>(itemBinding.root) {
         override fun bind(item: CardItemModel, position: Int) = with(itemBinding) {
-           tvTitle.text = item.title
+            tvTitle.text = item.title
             ivFoxItem.setImageResource(item.img)
             cardItem.setOnClickListener{
                 onCardItemClickListener?.let {click ->

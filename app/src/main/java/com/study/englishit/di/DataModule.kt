@@ -2,6 +2,7 @@ package com.study.englishit.di
 
 import com.study.englishit.R
 import com.study.englishit.domain.model.CardItemModel
+import com.study.englishit.domain.model.PhrasesModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,5 +34,18 @@ object DataModule {
         )
     }
 
+    @Singleton
+    @Provides
+    fun providesPhrases() : MutableList<PhrasesModel>{
+        return mutableListOf(
+            PhrasesModel("hello", "hola"),
+            PhrasesModel("how are you?", "como estas?"),
+            PhrasesModel("fine and u?", "bien y vos?"),
+            PhrasesModel("down", "abajo"),
+            PhrasesModel("up", "arriba"),
+            PhrasesModel("compute", "computadora"),
+            PhrasesModel("glasses", "lentes"),
+        )
+    }
 
 }
