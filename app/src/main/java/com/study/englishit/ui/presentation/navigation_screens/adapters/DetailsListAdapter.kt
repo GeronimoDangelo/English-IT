@@ -1,7 +1,9 @@
 package com.study.englishit.ui.presentation.navigation_screens.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.study.englishit.databinding.PhrasesItemBinding
@@ -25,6 +27,16 @@ class DetailsListAdapter() : ListAdapter<PhrasesModel,ItemViewHolder<*>>(DiffUti
         override fun bind(item: PhrasesModel, position: Int) = with(detailsItemBinding){
             tvTitlePhrase.text = item.title
             tvDescPhrase.text= item.desc
+
+            val isExpandible : Boolean = item.isExpandable
+            tvDescPhrase.visibility = if (isExpandible) View.VISIBLE else View.GONE
+            cardView.visibility = if (isExpandible) View.VISIBLE else View.GONE
+
+            constraitLayoutDesc.setOnClickListener {
+                item.isExpandable = !item.isExpandable
+                notifyItemChanged(position)
+            }
+
             phrasesDetailsItem.setOnClickListener {
                 onDetailsItemClickListener?.let { click ->
                     click(item)

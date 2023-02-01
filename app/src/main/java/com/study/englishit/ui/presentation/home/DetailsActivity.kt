@@ -1,5 +1,6 @@
 package com.study.englishit.ui.presentation.home
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -40,13 +41,31 @@ class DetailsActivity : AppCompatActivity() {
         binding.tvFirstTitle.text = title
 
 
-        when (id) {
-            0 -> detailsListAdapter.submitList(list1)
-            1 -> detailsListAdapter.submitList(list2)
 
+
+        when (id) {
+            0 -> {
+                detailsListAdapter.submitList(list1)
+            }
+            1 -> detailsListAdapter.submitList(list2)
+        }
+
+
+        detailsListAdapter.setDetailsItemClickListener {
+            playSound(it.audio)
         }
 
         initRecyclerView()
+    }
+
+
+    private fun playSound(audio: Int) {
+        var mediaPlayer: MediaPlayer? = null
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(this, audio)
+            mediaPlayer!!.isLooping = false
+            mediaPlayer.start()
+        } else mediaPlayer.start()
     }
 
 
