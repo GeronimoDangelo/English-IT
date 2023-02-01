@@ -7,57 +7,42 @@
     android:layout_height="wrap_content"
     android:background="@color/transparent"
     android:backgroundTint="@color/transparent"
+    android:onClick="playSound"
+    app:cardElevation="0dp"
+    android:layout_marginBottom="20dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
     app:strokeColor="@color/transparent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constrait1"
+            android:id="@+id/constraitLayoutDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/transparent"
             android:paddingHorizontal="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5">
+            app:layout_constraintTop_toTopOf="parent">
 
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/transparent"
-                android:outlineAmbientShadowColor="@color/transparent"
-                app:cardBackgroundColor="@color/transparent"
-                app:cardElevation="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@color/transparent"
-                    android:outlineAmbientShadowColor="@color/transparent"
-                    android:src="@drawable/circle_play" />
-            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tvTitlePhrase"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
-                android:fontFamily="@font/poppins_semibold"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Title Phrase"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -67,16 +52,39 @@
 
         <TextView
             android:id="@+id/tvDescPhrase"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="match_parent"
-
             android:background="@color/transparent"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/poppins_medium"
             android:paddingStart="17dp"
-            android:text="Desc phrase"
-            android:textSize="12sp"
+            android:text="Estoy muy bien , gracias. ¿Y vos como estas?. Se usa usualmente entre compañeros de trabajo y gente no muy conocida"
+            android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constrait1" />
+            app:layout_constraintTop_toBottomOf="@+id/constraitLayoutDesc" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="15dp"
+            android:background="@color/transparent"
+            android:outlineAmbientShadowColor="@color/transparent"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvDescPhrase"
+            app:layout_constraintTop_toTopOf="@id/tvDescPhrase"
+            app:layout_constraintBottom_toBottomOf="@id/tvDescPhrase">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/transparent"
+                android:outlineAmbientShadowColor="@color/transparent"
+                android:src="@drawable/circle_play" />
+        </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

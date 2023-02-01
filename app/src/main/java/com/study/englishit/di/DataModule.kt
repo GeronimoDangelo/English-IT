@@ -40,17 +40,17 @@ object DataModule {
     @Provides
     fun providesPhrases(): MutableList<PhrasesModel> {
         return mutableListOf(
-            PhrasesModel(0, "hello", "hola"),
-            PhrasesModel(1, "how are you?", "como estas?"),
-            PhrasesModel(2, "fine and u?", "bien y vos?"),
-            PhrasesModel(3, "down", "abajo"),
-            PhrasesModel(4, "up", "arriba"),
-            PhrasesModel(5, "compute", "computadora"),
-            PhrasesModel(6, "glasses", "lentes"),
-            PhrasesModel(6, "glasses", "lentes"),
-            PhrasesModel(6, "glasses", "lentes"),
-            PhrasesModel(6, "glasses", "lentes"),
-            PhrasesModel(6, "glasses", "lentes"),
+            PhrasesModel(0, "I'm very well thank you, how are you?", "Estoy muy bien , gracias. ¿Y vos como estas?", R.raw.howareyou),
+            PhrasesModel(1, "how are you?", "como estas?",1),
+            PhrasesModel(2, "fine and u?", "bien y vos?",1),
+            PhrasesModel(3, "down", "abajo",1),
+            PhrasesModel(4, "up", "arriba",1),
+            PhrasesModel(5, "compute", "computadora",1),
+            PhrasesModel(6, "glasses", "lentes",1),
+            PhrasesModel(6, "glasses", "lentes",1),
+            PhrasesModel(6, "glasses", "lentes",1),
+            PhrasesModel(6, "glasses", "lentes",1),
+            PhrasesModel(6, "glasses", "lentes",1),
         )
     }
 
@@ -59,18 +59,18 @@ object DataModule {
     @Provides
     fun providesPhrases2(): MutableList<PhrasesModel> {
         return mutableListOf(
-            PhrasesModel(0, "NICE", "hola"),
-            PhrasesModel(1, "WOW", "como estas?"),
-            PhrasesModel(2, "IT WORKSS", "bien y vos?"),
-            PhrasesModel(3, "down", "abajo"),
-            PhrasesModel(4, "up", "arriba"),
-            PhrasesModel(5, "compute", "computadora"),
-            PhrasesModel(6, "glasses", "lentes"),
-            PhrasesModel(7, "glasses", "lentes"),
-            PhrasesModel(8, "glasses", "lentes"),
-            PhrasesModel(9, "glasses", "lentes"),
-            PhrasesModel(10, "glasses", "lentes"),
-            PhrasesModel(11, "glasses", "lentes"),
+            PhrasesModel(0, "NICE", "hola",R.raw.howareyou),
+            PhrasesModel(1, "WOW", "como estas?",1),
+            PhrasesModel(2, "IT WORKSS", "bien y vos?",1),
+            PhrasesModel(3, "down", "abajo",1),
+            PhrasesModel(4, "up", "arriba",1),
+            PhrasesModel(5, "compute", "computadora",1),
+            PhrasesModel(6, "glasses", "lentes",1),
+            PhrasesModel(7, "glasses", "lentes",1),
+            PhrasesModel(8, "glasses", "lentes",1),
+            PhrasesModel(9, "glasses", "lentes",1),
+            PhrasesModel(10, "glasses", "lentes",1),
+            PhrasesModel(11, "glasses", "lentes",1),
         )
     }
 
