@@ -33,6 +33,19 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="send_recovery_password">Send recovery password</string>
     <string name="card_image_withouth_importace">card image withouth importace</string>
+    <string name="computer_terms_title">Computer Terms</string>
+    <string name="useful_verbs">Useful Verbs</string>
+    <string name="greetings">Greetings</string>
+    <string name="daily_routine">Daily Routine</string>
+    <string name="pg_terms">Programming \n Terms</string>
+    <string name="social_tech">Social Tech</string>
+    <string name="hobbies">Hobbies</string>
+    <string name="interviews_beginner">Interviews \n Beginner</string>
+    <string name="code_terms">Code Terms</string>
+    <string name="useful_verbs2">Useful Verbs</string>
+    <string name="meetings">Meetings</string>
+    <string name="job_terms">Job terms</string>
+    <string name="text_1">Level 1</string>
 
 
 </resources>

@@ -33,12 +33,12 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val title = intent.getStringExtra("title")
+        val title = getIntent().getIntExtra("title",0)
         val img = getIntent().getIntExtra("img", 0)
         val id = getIntent().getIntExtra("id", 0)
 
         binding.ivHeadImg.setImageResource(img)
-        binding.tvFirstTitle.text = title
+        binding.tvFirstTitle.setText(title)
         binding.backArrow.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }

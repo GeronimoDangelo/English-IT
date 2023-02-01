@@ -19,18 +19,19 @@ object DataModule {
     @Provides
     fun provideTitlesToItems(): MutableList<CardItemModel> {
         return mutableListOf(
-            CardItemModel(id = 0, "Level 1", img = R.drawable.image1),
-            CardItemModel(id = 1, "Intermediate 2", img = R.drawable.image2),
-            CardItemModel(id = 2, "Advanced 3", img = R.drawable.image3),
-            CardItemModel(id = 3, "Full Native 4", img = R.drawable.image4),
-            CardItemModel(id = 4, "Alien 5", img = R.drawable.image5),
-            CardItemModel(id = 5, "Interviews", img = R.drawable.image6),
-            CardItemModel(id = 6, "Hobbies", img = R.drawable.image7),
-            CardItemModel(id = 7, "Interviews \n Advanced", img = R.drawable.image8),
-            CardItemModel(id = 8, "Interviews\n Advanced", img = R.drawable.image9),
-            CardItemModel(id = 9, "Interviews \n Advanced", img = R.drawable.image10),
-            CardItemModel(id = 10, "Interviews\n Advanced", img = R.drawable.image11),
-            CardItemModel(id = 11, "Interviews \nAdvanced", img = R.drawable.image12),
+            CardItemModel(id = 0,  R.string.computer_terms_title, img = R.drawable.image1),
+            CardItemModel(id = 1, R.string.useful_verbs, img = R.drawable.image2),
+            CardItemModel(id = 2, R.string.greetings, img = R.drawable.image3),
+            CardItemModel(id = 3, R.string.daily_routine, img = R.drawable.image4),
+            CardItemModel(id = 4, R.string.pg_terms, img = R.drawable.image5),
+            CardItemModel(id = 5, R.string.social_tech, img = R.drawable.image6),
+            CardItemModel(id = 6, R.string.hobbies, img = R.drawable.image7),
+            CardItemModel(id = 7, R.string.interviews_beginner, img = R.drawable.image8),
+            CardItemModel(id = 8, R.string.code_terms, img = R.drawable.image9),
+            CardItemModel(id = 9, R.string.useful_verbs2, img = R.drawable.image10),
+            CardItemModel(id = 10, R.string.meetings, img = R.drawable.image11),
+            CardItemModel(id = 11, R.string.job_terms, img = R.drawable.image12),
+
 
             )
     }
