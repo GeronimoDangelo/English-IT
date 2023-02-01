@@ -31,20 +31,39 @@ class DetailsListAdapter() : ListAdapter<PhrasesModel,ItemViewHolder<*>>(DiffUti
             val isExpandible : Boolean = item.isExpandable
             tvDescPhrase.visibility = if (isExpandible) View.VISIBLE else View.GONE
             cardView.visibility = if (isExpandible) View.VISIBLE else View.GONE
+            translateBG.visibility = if (isExpandible) View.VISIBLE else View.GONE
+
 
             constraitLayoutDesc.setOnClickListener {
+                isAnyItemExpanded(position)
                 item.isExpandable = !item.isExpandable
                 notifyItemChanged(position)
             }
 
-            phrasesDetailsItem.setOnClickListener {
+            translateBG.setOnClickListener {
                 onDetailsItemClickListener?.let { click ->
                     click(item)
                 }
             }
+
+
+
         }
 
+        override fun isAnyItemExpanded(position: Int) {
+            val current = currentList.indexOfFirst {
+                it.isExpandable
+            }
+            if (current >= 0 && current != position){
+                currentList[current].isExpandable = false
+                notifyItemChanged(current,0)
+            }
+        }
+
+
     }
+
+
 
     override fun onBindViewHolder(holder: ItemViewHolder<*>, position: Int) {
         when (holder) {

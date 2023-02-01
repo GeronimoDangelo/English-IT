@@ -40,7 +40,7 @@ object DataModule {
     @Provides
     fun providesPhrases(): MutableList<PhrasesModel> {
         return mutableListOf(
-            PhrasesModel(0, "I'm very well thank you, how are you?", "Estoy muy bien , gracias. ¿Y vos como estas?", R.raw.howareyou),
+            PhrasesModel(0, "I'm very well thank you! h'are u?", "Estoy muy bien , gracias. ¿Y vos como estas?", R.raw.howareyou),
             PhrasesModel(1, "how are you?", "como estas?",1),
             PhrasesModel(2, "fine and u?", "bien y vos?",1),
             PhrasesModel(3, "down", "abajo",1),

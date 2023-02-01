@@ -39,7 +39,9 @@ class DetailsActivity : AppCompatActivity() {
 
         binding.ivHeadImg.setImageResource(img)
         binding.tvFirstTitle.text = title
-
+        binding.backArrow.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
 
 
 

@@ -21,4 +21,9 @@
     <color name="btnSignUpFromLogin">#A44D2C</color>
     <color name="topBar">#1A151E</color>
     <color name="transparent">#001A151E</color>
+    <color name="descback">#43FFFFFF</color>
+    <color name="descBG">#A6393124</color>
+    <color name="translateBG">#A64B4B4B</color>
+    <color name="detailsBG">#1A151E</color>
+    <color name="detailsTitle">#B4FFFFFF</color>
 </resources>

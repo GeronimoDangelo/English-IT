@@ -41,6 +41,10 @@ class ItemListAdapter(): ListAdapter<CardItemModel, ItemViewHolder<*>>(DiffUtilC
             }
         }
 
+        override fun isAnyItemExpanded(position: Int) {
+            TODO("Not yet implemented")
+        }
+
     }
 
     private var onCardItemClickListener : ((CardItemModel) -> Unit) ? = null

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bghome"
+    android:background="@color/detailsBG"
     tools:context=".ui.presentation.home.DetailsActivity">
 
     <ImageView
@@ -17,6 +17,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image1" />
 
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintBottom_toBottomOf="@id/tvFirstTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivHeadImg" />
+
     <TextView
         android:id="@+id/tvFirstTitle"
         android:layout_width="wrap_content"
@@ -24,7 +35,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Example"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,9 +46,9 @@
         android:id="@+id/rvDetails"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingBottom="30dp"
-        android:clipToPadding="false"
         android:background="@color/transparent"
+        android:clipToPadding="false"
+        android:paddingBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
