@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardItem"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="30dp"
+    android:layout_marginTop="40dp"
+    >
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvItem"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="30dp"
         android:elevation="5dp"
         app:cardCornerRadius="100dp"
         app:cardElevation="5dp"
@@ -32,14 +34,14 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="18dp"
         android:elevation="5dp"
-        android:fontFamily="@font/poppins_bold"
+        android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
         android:textColor="@color/titleItemColor"
-        android:text="Level 1"
+        android:text="@string/text_1"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

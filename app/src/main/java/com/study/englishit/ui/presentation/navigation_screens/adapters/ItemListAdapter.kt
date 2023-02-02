@@ -1,9 +1,11 @@
 package com.study.englishit.ui.presentation.navigation_screens.adapters
 
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.study.englishit.R
 import com.study.englishit.databinding.CardItemBinding
 import com.study.englishit.domain.model.CardItemModel
 import com.study.englishit.ui.common.ItemViewHolder
@@ -32,7 +34,7 @@ class ItemListAdapter(): ListAdapter<CardItemModel, ItemViewHolder<*>>(DiffUtilC
 
     inner class BindViewHolderList(private val itemBinding: CardItemBinding): ItemViewHolder<CardItemModel>(itemBinding.root) {
         override fun bind(item: CardItemModel, position: Int) = with(itemBinding) {
-            tvTitle.text = item.title
+            tvTitle.setText(item.title)
             ivFoxItem.setImageResource(item.img)
             cardItem.setOnClickListener{
                 onCardItemClickListener?.let {click ->

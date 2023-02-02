@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.study.englishit.data.local.LocalSource.providesPhrases
+import com.study.englishit.data.local.LocalSource.providesPhrases2
+import com.study.englishit.data.local.LocalSource.providesPhrases3
 import com.study.englishit.databinding.ActivityDetailsBinding
 import com.study.englishit.di.DataModule
 import com.study.englishit.domain.model.PhrasesModel
+import com.study.englishit.domain.model.PhrasesModel2
 import com.study.englishit.ui.presentation.navigation_screens.adapters.DetailsListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -19,13 +23,9 @@ class DetailsActivity : AppCompatActivity() {
     private val detailsListAdapter = DetailsListAdapter()
 
 
-    @DataModule.List1
-    @Inject
-    lateinit var list1: List<PhrasesModel>
-
-    @DataModule.List2
-    @Inject
-    lateinit var list2: List<PhrasesModel>
+    private val list1 = providesPhrases()
+    private val list2 = providesPhrases2()
+    private val list3 = providesPhrases3()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +33,12 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val title = intent.getStringExtra("title")
+        val title = getIntent().getIntExtra("title", 0)
         val img = getIntent().getIntExtra("img", 0)
         val id = getIntent().getIntExtra("id", 0)
 
         binding.ivHeadImg.setImageResource(img)
-        binding.tvFirstTitle.text = title
+        binding.tvFirstTitle.setText(title)
         binding.backArrow.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
@@ -50,6 +50,7 @@ class DetailsActivity : AppCompatActivity() {
                 detailsListAdapter.submitList(list1)
             }
             1 -> detailsListAdapter.submitList(list2)
+            2 -> detailsListAdapter.submitList(list3)
         }
 
 
