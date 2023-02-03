@@ -260,7 +260,7 @@ object LocalSource {
         )
     }
 
-    //Time
+    //Casual
     fun providesPhrases6(): MutableList<PhrasesModel> {
         return mutableListOf(
             PhrasesModel(1, "Every once in a while", "De vez en cuando", R.raw.everyonceinawhile),
@@ -292,5 +292,140 @@ object LocalSource {
             ),
         )
     }
+
+    //After work
+    fun providesPhrases7(): MutableList<PhrasesModel> {
+        return mutableListOf(
+            PhrasesModel(1,"We should discuss this over lunch","Deberíamos discutir esto durante el almuerzo",R.raw.weshoulddiscussthisoverlunch),
+            PhrasesModel(2,"We should do this again!","¡Deberíamos hacer esto de nuevo!",R.raw.weshoulddothisagain),
+            PhrasesModel(3,"We should talk over dinner","Deberíamos hablar durante la cena",R.raw.weshouldtalkoverdinner),
+            PhrasesModel(4,"What do you do for fun?","¿Qué haces para divertirte?",R.raw.whatdoyoudoforfun),
+            PhrasesModel(5,"I've already taken so much of your time","Ya he tomado mucho de tu tiempo",R.raw.ialreadytakesomuchofyourtime),
+            PhrasesModel(6,"I feel like we've got so much more to talk about","Siento que tenemos mucho más de qué hablar!",R.raw.ifeelthatwehavesomuchtotalkabout),
+            PhrasesModel(7,"I'd love to carry this on at another time","Me encantaría continuar con esto en otro momento.",R.raw.ilovetocarrythisonanothertime),
+            PhrasesModel(8,"What have I missed ? Fill me in!","¿Qué me he perdido? Cuentame todo!",R.raw.whatimissedfiillmeinn),
+        )
+    }
+
+    //Short of Time
+    fun providesPhrases8(): MutableList<PhrasesModel> {
+        return mutableListOf(
+            PhrasesModel(1,"How do you get into...'x' ?","Se usa para preguntat como empesate hace X actividad , ejemplo:\n\n How do you get into development?\n ¿Como es que te entraste a la programacion?",R.raw.howdoyougetintooox),
+            PhrasesModel(2,"I'm a bit pressed for time!","Estoy un poco presionado por el tiempo! \n\n Se usa para terminar una conversacion y despedirse.",R.raw.imabitpressedfortime),
+            PhrasesModel(3,"Right! I need to make a move!","Bueno! Necesito estarme llendo!",R.raw.rightineedtomakeamove),
+            PhrasesModel(4,"There's so much to say but  I can't go into it now","Hay tanto que decir, pero no puedo en este momento",R.raw.theressomuchtosaybuticantgetintothatnow),
+            PhrasesModel(5,"We should chat over coffee","Deberíamos charlar tomando un café.",R.raw.weshouldchatovercoffee),
+            PhrasesModel(6,"What do you do outside of work?","¿Qué haces fuera del trabajo?",R.raw.whatdoyoudooutisdeofwork),
+            PhrasesModel(7,"What do you do when you are not working?","¿Qué haces cuando no estás trabajando?",R.raw.whatdoyoudowhenyouarenotworkingg),
+            PhrasesModel(8,"What gets you out off bed in the morning?","¿Qué te saca de la cama por la mañana?",R.raw.whatgetsyououtofberinthemorning),
+        )
+    }
+
+    // Job Interview
+    fun providesPhrases9(): MutableList<PhrasesModel> {
+        return mutableListOf(
+            PhrasesModel(1,"I think I'm a good fit for this job","Creo que soy un buen candidato para este trabajo.",R.raw.ithinkimagoodfitforthisjob),
+            PhrasesModel(2,"I'm excited to showcase my skills","Estoy emocionado de mostrar mis habilidades",R.raw.imexcitedtoshowcasemyskilss),
+            PhrasesModel(3,"I'm sure I could bring a lot to this job","Estoy seguro de que podría aportar mucho a este trabajo",R.raw.imsureicouldbringalottothisjob),
+            PhrasesModel(4,"I never shy away from hard work","Nunca me asusto del trabajo duro",R.raw.inevershyawayfromhardwork),
+            PhrasesModel(5,"I'm responsible for settings the marketing goals","Soy responsable de establecer los objetivos de marketing.",R.raw.imresponsibleforsettingthemarketinggoals),
+            PhrasesModel(6,"I think I'm a good match for this job","Creo que soy un buen candidato para este trabajo.",R.raw.ithinkimagoodmatchforthisjob),
+            PhrasesModel(7,"I'm in charge of making the marketing strategy","Me encargo de hacer la estrategia de marketing.",R.raw.iminchargeofmakingthemarketingstrategy),
+            PhrasesModel(8,"My forte is making creative graphics","Mi fuerte es hacer gráficos creativos.",R.raw.myforteismakingcrativegraphics),
+
+        )
+    }
+
+    //Career Change
+    fun providesPhrases10(): MutableList<PhrasesModel> {
+        return mutableListOf(
+            PhrasesModel(1,"I'm snowed under with work","Estoy abrumado por tanto trabajo",R.raw.imsnowunder),
+            PhrasesModel(2,"I'm up to my neck in deadlines","Estoy hasta el cuello con las fechas limites",R.raw.imuptomyneckindeadlines),
+            PhrasesModel(3,"I'm stuck in a rut","Estoy atrapado en un mal lugar/ situacion.",R.raw.imstuckunarut),
+            PhrasesModel(4,"I'm not realising my potential","No me estoy dando cuenta de mi potencial.",R.raw.imnotreazlizinmypotencial),
+            PhrasesModel(5,"It's time to move on","Es tiempo de moverse",R.raw.itstimetomoveon),
+            PhrasesModel(6,"It's time to move on to a new challenge","Es momento de pasar a un nuevo desafío.",R.raw.itstimetomoveontothenextchallenge),
+        )
+    }
+
+    //Yourself
+    fun providesPhrases11(): MutableList<PhrasesModel> {
+        return mutableListOf(
+
+            PhrasesModel(1,"The most interesting part for me..","La parte más interesante para mí..",R.raw.themostinterestingpartforme),
+            PhrasesModel(2,"I'm a big fan of go karting","Soy un gran fan de karting",R.raw.imabigfanofgokarting),
+            PhrasesModel(3,"I'm from a family of four","Soy de una familia de cuatro",R.raw.imfromafamilyoffour),
+            PhrasesModel(4,"We are a family of four","Somos una familia de cuatro",R.raw.weareafamiloffour),
+            PhrasesModel(5,"I've worked in accounting for three years","He trabajado en contabilidad durante tres años.",R.raw.iveworkedinaccountingforthreeyears),
+            PhrasesModel(6,"I have 3 years of experience in the neuroscience field","Tengo 3 años de experiencia en el campo de la neurociencia.",R.raw.ihave3yearsofexperienceintheneurosciencefield),
+            PhrasesModel(7,"I'm a biology postgrad","Soy un posgraduado en biologia",R.raw.imabiologypostgrad),
+            PhrasesModel(8,"I'm about to graduate","Estoy por graduarme",R.raw.imabouttograduate),
+
+
+
+
+        )
+
+    }
+
+
+    // Opinion
+    fun providesPhrases12(): MutableList<PhrasesModel> {
+        return mutableListOf(
+            PhrasesModel(9,"IT Manager","IT Manager / Administrador IT",R.raw.itmanager),
+            PhrasesModel(10,"I work as an accountant","Trabajo como contador",R.raw.iworkasanaccountant),
+            PhrasesModel(11,"As far as I can see , they do.","Por lo que puedo ver, lo hacen.",R.raw.asfarasicanseetheydo),
+            PhrasesModel(12,"Off the top of my head","Sin pensarlo mucho",R.raw.offthetopofmyhead),
+            PhrasesModel(13,"I would say","Yo diría",R.raw.iwouldsay),
+            PhrasesModel(14,"Yes, we will.","Si lo haremos",R.raw.yeswewill),
+            PhrasesModel(15,"The reason I think so is because..","La razón por la que lo creo es porque...",R.raw.thereasonithinksoisbecause),
+            PhrasesModel(16,"I can't say for sure","No puedo decirlo con seguridad",R.raw.icantsayforsure),
+        )
+    }
+
+    // Probability
+    fun providesPhrases13(): MutableList<PhrasesModel> {
+        return mutableListOf(
+            PhrasesModel(17,"But it seems to me","Pero me parece..",R.raw.butitseemstome),
+            PhrasesModel(18,"I'm not to sure to be honest","No estoy muy seguro para ser honesto",R.raw.imnottosuretobehonest),
+            PhrasesModel(19,"Will you go to work tomorrow?","¿Irás al trabajo mañana?",R.raw.willyougotoworktomorrow),
+            PhrasesModel(20,"I have lived here for ten years","He vivido aquí durante diez años.",R.raw.ihaveleavedyearfor10years),
+            PhrasesModel(21,"It's most probable ","Es lo mas probable",R.raw.itsmostprobable),
+            PhrasesModel(21,"I will","Voy a...",R.raw.iwill),
+            PhrasesModel(23,"It's highly probable","Es muy probable",R.raw.itshighlyprobable),
+            PhrasesModel(24,"There's a good likelihood","Hay una buena probabilidad",R.raw.theresagoodlikelihood),
+        )
+    }
+
+
+    // Casual 3
+    fun providesPhrases14(): MutableList<PhrasesModel> {
+        return mutableListOf(
+            PhrasesModel(25,"The reason","La razón",R.raw.thereason),
+            PhrasesModel(26,"There's a fair chance","Hay una buena oportunidad",R.raw.theresafairchance),
+            PhrasesModel(27,"Online shopping may save time","Las compras en línea pueden ahorrar tiempo",R.raw.onlineshoppingmaysavetime),
+            PhrasesModel(28,"The most interesting part for me","La parte mas interesante para mi",R.raw.themostinterestingpartforme),
+            PhrasesModel(29,"It's probably..","Es probablemente..",R.raw.itsprobably),
+            PhrasesModel(30,"The beaches","Las playas",R.raw.thebeaches),
+        )
+    }
+
+
+    // Hometown
+    fun providesPhrases15(): MutableList<PhrasesModel> {
+        return mutableListOf(
+            PhrasesModel(31,"I will call you tomorrow","Te llamaré mañana",R.raw.iwillcallyoutomorrow),
+            PhrasesModel(32,"I live in a city where there is not too much traffic","",R.raw.iliveinacitywherethereisnottoomuchtraffic),
+            PhrasesModel(33,"Maybe i will go","Talvez vaya",R.raw.maybeiwillgo),
+            PhrasesModel(34,"First impressions count","Las primeras impresiones cuentan",R.raw.firstimpressionscount),
+            PhrasesModel(35,"You wanna keep it simple and friendly","Quieres mantenerlo simple y amigable",R.raw.youwannakeeptisimple),
+            PhrasesModel(37,"I live in Santander","Yo vivo en santander",R.raw.iliveinsantender),
+            PhrasesModel(38,"I've been living there for 2 years actually","He estado viviendo allí durante 2 años en realidad",R.raw.ivebeenlivingtherefor2yearsactually),
+            PhrasesModel(39,"Yeah , It's a coastal city with some nice beaches","Sí, es una ciudad costera con algunas playas bonitas.",R.raw.yeahitsacoastalcitywithsomenicebeaches),
+        )
+    }
+
+
+
 
 }

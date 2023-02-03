@@ -31,12 +31,12 @@ object DataModule {
             CardItemModel(id = 8, R.string.code_terms, img = R.drawable.zoom12),
             CardItemModel(id = 9, R.string.useful_verbs2, img = R.drawable.image10),
             CardItemModel(id = 10, R.string.meetings, img = R.drawable.image11),
-            CardItemModel(id = 12, R.string.travel, img = R.drawable.zoom5),
-            CardItemModel(id = 13, R.string.vacations, img = R.drawable.image5),
-            CardItemModel(id = 14, R.string.recruiter, img = R.drawable.image3),
-            CardItemModel(id = 15, R.string.software, img = R.drawable.zoom10),
-            CardItemModel(id = 16, R.string.algorithms, img = R.drawable.image4),
-            CardItemModel(id = 17, R.string.interviewsfinal, img = R.drawable.image8),
+            CardItemModel(id = 11, R.string.travel, img = R.drawable.zoom5),
+            CardItemModel(id = 12, R.string.vacations, img = R.drawable.image5),
+            CardItemModel(id = 13, R.string.recruiter, img = R.drawable.image3),
+            CardItemModel(id = 14, R.string.software, img = R.drawable.zoom10),
+            CardItemModel(id = 15, R.string.algorithms, img = R.drawable.image4),
+            CardItemModel(id = 16, R.string.interviewsfinal, img = R.drawable.image8),
             CardItemModel(id = 17, R.string.job_meeting, img = R.drawable.zoom4),
         )
     }

@@ -7,11 +7,20 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.study.englishit.data.local.LocalSource.providesPhrases0
 import com.study.englishit.data.local.LocalSource.providesPhrases1
+import com.study.englishit.data.local.LocalSource.providesPhrases10
+import com.study.englishit.data.local.LocalSource.providesPhrases11
+import com.study.englishit.data.local.LocalSource.providesPhrases12
+import com.study.englishit.data.local.LocalSource.providesPhrases13
+import com.study.englishit.data.local.LocalSource.providesPhrases14
+import com.study.englishit.data.local.LocalSource.providesPhrases15
 import com.study.englishit.data.local.LocalSource.providesPhrases2
 import com.study.englishit.data.local.LocalSource.providesPhrases3
 import com.study.englishit.data.local.LocalSource.providesPhrases4
 import com.study.englishit.data.local.LocalSource.providesPhrases5
 import com.study.englishit.data.local.LocalSource.providesPhrases6
+import com.study.englishit.data.local.LocalSource.providesPhrases7
+import com.study.englishit.data.local.LocalSource.providesPhrases8
+import com.study.englishit.data.local.LocalSource.providesPhrases9
 import com.study.englishit.databinding.ActivityDetailsBinding
 import com.study.englishit.ui.presentation.navigation_screens.adapters.DetailsListAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,6 +39,15 @@ class DetailsActivity : AppCompatActivity() {
     private val list4 = providesPhrases4()
     private val list5 = providesPhrases5()
     private val list6 = providesPhrases6()
+    private val list7 = providesPhrases7()
+    private val list8 = providesPhrases8()
+    private val list9 = providesPhrases9()
+    private val list10 = providesPhrases10()
+    private val list11 = providesPhrases11()
+    private val list12 = providesPhrases12()
+    private val list13 = providesPhrases13()
+    private val list14 = providesPhrases14()
+    private val list15 = providesPhrases15()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +77,15 @@ class DetailsActivity : AppCompatActivity() {
             4 -> detailsListAdapter.submitList(list4)
             5 -> detailsListAdapter.submitList(list5)
             6 -> detailsListAdapter.submitList(list6)
+            7 -> detailsListAdapter.submitList(list7)
+            8 -> detailsListAdapter.submitList(list8)
+            9 -> detailsListAdapter.submitList(list9)
+            10 -> detailsListAdapter.submitList(list10)
+            11 -> detailsListAdapter.submitList(list11)
+            12 -> detailsListAdapter.submitList(list12)
+            13 -> detailsListAdapter.submitList(list13)
+            14 -> detailsListAdapter.submitList(list14)
+            15 -> detailsListAdapter.submitList(list15)
         }
 
 
