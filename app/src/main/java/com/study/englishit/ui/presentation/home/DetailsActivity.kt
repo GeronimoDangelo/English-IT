@@ -55,7 +55,7 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val title = getIntent().getIntExtra("title", 0)
+        val title = intent.getIntExtra("title", 0)
         val img = getIntent().getIntExtra("img", 0)
         val id = getIntent().getIntExtra("id", 0)
 

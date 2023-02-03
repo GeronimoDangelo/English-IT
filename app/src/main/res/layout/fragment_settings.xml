@@ -3,15 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.presentation.navigation_screens.SettingsFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+
     <TextView
+        android:id="@+id/points"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Settings Fragment"
+        android:text="Points:"
+        android:layout_margin="20dp"
         android:textColor="@color/bgHomeNav"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lesson Completed (+5 points)"
+        app:layout_constraintTop_toBottomOf="@id/points"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

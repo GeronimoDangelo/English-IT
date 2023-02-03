@@ -51,9 +51,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="English IT"
+        app:subtitleTextColor="@color/white"
         app:navigationIcon="@drawable/star"
         app:titleTextColor="@color/white"
         />
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
