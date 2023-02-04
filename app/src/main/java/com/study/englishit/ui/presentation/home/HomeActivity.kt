@@ -29,8 +29,9 @@ class HomeActivity : AppCompatActivity() {
         homeViewModel.getPoints()
         NavigationUI.setupWithNavController(
             binding.bottomNavMenu,
-            findNavController(R.id.fragmentActivityHome)
+            findNavController(R.id.fragmentActivityHome),
         )
+
 
 
     }

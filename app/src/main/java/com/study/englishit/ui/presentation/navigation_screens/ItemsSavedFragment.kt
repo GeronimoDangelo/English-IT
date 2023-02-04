@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.study.englishit.R
 import com.study.englishit.databinding.FragmentItemsSavedBinding
@@ -57,13 +58,16 @@ class ItemsSavedFragment : Fragment() {
         binding.tvPoints.text = "Puntos: $totalPoints"
     }
 
-    private fun initListeners() {
-        binding.btnLogout.setOnClickListener {
+    private fun initListeners() = with(binding) {
+        btnLogout.setOnClickListener {
             loginViewModel.logOut()
             sharedPreferences.edit().clear().apply()
             startActivity(Intent(requireContext(), LoginActivity::class.java))
             activity?.finish()
 
+        }
+        btnMasinfo.setOnClickListener {
+            findNavController().navigate(R.id.action_itemsSavedFragment_to_moreAppInfoFragment)
         }
     }
 

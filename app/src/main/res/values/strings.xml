@@ -53,6 +53,10 @@
     <string name="algorithms">Hometown</string>
     <string name="interviewsfinal">Interviews</string>
     <string name="job_meeting">Job Meeting</string>
+    <string name="this_app">This app was made to help people with real examples of english phrases. This was develop by one developer in months , so if theres a wrong translation please let me know. Contact email:  </string>
+    <string name="all_the_audios">All the audios for this app was thank to the following Youtubers. Im not breaking any policy terms , but if you are the properties from the audios and its annoying you , please let me know and i will respond immediately and assist whatever thing you want to do with those.  </string>
+    <string name="lucy"><a href="https://www.youtube.com/@EnglishwithLucy">English with Lucy</a></string>
+    <string name="english_speaking_success"><a href="https://www.youtube.com/@EnglishSpeakingSuccess">English Speaking Success</a></string>
 
 
 </resources>
