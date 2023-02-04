@@ -14,7 +14,8 @@
     <string name="login__error_enter_email">Ingrese su correo electrónico.</string>
     <string name="login__error_enter_password">Ingrese su contraseña.</string>
 
-
+    <string name="text_1">Level 1</string>
+    <string name="yourself">Probability</string>
     <string name="signup__header">Crear Cuenta</string>
     <string name="signup__email_hint">Correo electrónico</string>
     <string name="signup__password_hint">Contraseña</string>
@@ -34,24 +35,22 @@
     <string name="send_recovery_password">Send recovery password</string>
     <string name="card_image_withouth_importace">card image withouth importace</string>
     <string name="computer_terms_title">Basic Phrases</string>
-    <string name="useful_verbs">Questions</string>
+    <string name="useful_verbs">Casual</string>
     <string name="greetings">Connectors</string>
-    <string name="daily_routine">Daily Routine</string>
-    <string name="pg_terms">Programming \n Terms</string>
+    <string name="daily_routine">Ending a \n conversation</string>
+    <string name="pg_terms">Job \n Chatting</string>
     <string name="social_tech">Social Tech</string>
-    <string name="hobbies">Hobbies</string>
-    <string name="interviews_beginner">Interviews \n Beginner</string>
-    <string name="code_terms">Code Terms</string>
-    <string name="useful_verbs2">Useful Verbs</string>
-    <string name="meetings">Meetings</string>
+    <string name="hobbies">Casual 2</string>
+    <string name="interviews_beginner">After Work</string>
+    <string name="code_terms">Short of Time</string>
+    <string name="useful_verbs2">Job Interview</string>
+    <string name="meetings">Career Change</string>
     <string name="job_terms">Job terms</string>
-    <string name="text_1">Level 1</string>
-    <string name="travel">Travel</string>
-    <string name="vacations">Vacations</string>
-    <string name="yourself">Yourself</string>
-    <string name="recruiter">Recruiter Terms</string>
-    <string name="software">Software</string>
-    <string name="algorithms">Algorithms</string>
+    <string name="travel">Yourself</string>
+    <string name="vacations">Opinion</string>
+    <string name="recruiter">Probability</string>
+    <string name="software">Short Answers</string>
+    <string name="algorithms">Hometown</string>
     <string name="interviewsfinal">Interviews</string>
     <string name="job_meeting">Job Meeting</string>
 
