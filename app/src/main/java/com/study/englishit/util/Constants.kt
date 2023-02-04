@@ -12,6 +12,7 @@ object Constants {
 
     var USER_LOGGED_IN_ID = USER_NOT_LOGGED
     var USER_EMAIL_GET = "user_email"
+    var USER_POINTS_GET = "user_points"
     const val SHARED_PREFERENCES_NAME = "shared_preferences_name"
 
     const val SHARED_EMAIL = "shared_email"

@@ -10,6 +10,7 @@ import com.study.englishit.domain.repository.LoginRepository
 import com.study.englishit.util.Constants.INFO_NOT_SET
 import com.study.englishit.util.Constants.USER_EMAIL_GET
 import com.study.englishit.util.Constants.USER_LOGGED_IN_ID
+import com.study.englishit.util.Constants.USER_POINTS_GET
 import com.study.englishit.util.DataState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -50,7 +51,7 @@ class LoginRepositoryImpl @Inject constructor(
                         val firebaseUser: FirebaseUser = task.result.user!!
                         registeredUser = User(
                             email = user.email,
-                            id = firebaseUser.uid
+                            id = firebaseUser.uid,
                         )
                     }
                     //with this else block exception we are gonna catch the error and pass it to the "lateinit var" that is up there
@@ -102,6 +103,7 @@ class LoginRepositoryImpl @Inject constructor(
                         requestStatus = true
                         USER_LOGGED_IN_ID = user.id
                         USER_EMAIL_GET = user.email
+                        USER_POINTS_GET = user.points.toString()
                     }
                     .addOnFailureListener {
                         requestStatus = false

@@ -85,7 +85,7 @@ class SignUpFragment : Fragment() {
     private fun createUser(): User {
         val email = binding.etEmail.text.toString()
         return User(
-            email = email
+            email = email,
         )
     }
 

@@ -2,12 +2,17 @@ package com.study.englishit.ui.presentation.navigation_screens
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.SetOptions
 import com.study.englishit.databinding.FragmentSettingsBinding
+import com.study.englishit.di.FirebaseModule
 import com.study.englishit.ui.presentation.home.HomeViewModel
 import com.study.englishit.util.toast
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,10 +25,17 @@ class SettingsFragment : Fragment() {
     @Inject
     lateinit var sharedPreferences: SharedPreferences
 
+
+    @Inject
+    lateinit var firebaseAuth: FirebaseAuth
+
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
     private val homeViewModel: HomeViewModel by viewModels()
+
+    @Inject
+    @FirebaseModule.UsersCollection lateinit var usersCollection: CollectionReference
 
 
 
@@ -61,7 +73,17 @@ class SettingsFragment : Fragment() {
         homeViewModel.lessonCompleted()
         val total = homeViewModel.totalPoints.value!!
         sharedPreferences.edit().putInt("count",total).apply()
-        activity?.toast("data saved")
+        val add = HashMap<String,Any>()
+        add["points"] = total
+        try {
+            firebaseAuth.currentUser?.uid.let {
+                firebaseAuth.currentUser?.let { it1 -> usersCollection.document(it1.uid).set(add, SetOptions.merge()) }
+            }
+        } catch (e: Exception) {
+            Log.e("firebase",e.toString())
+            activity?.toast(e.toString())
+        }
+
 
     }
 
