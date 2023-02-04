@@ -21,8 +21,8 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val sharedPreferences: SharedPreferences,
     private val firebaseAuth: FirebaseAuth,
-    @FirebaseModule.UsersCollection private var usersCollection: CollectionReference
-    ) : ViewModel() {
+    @FirebaseModule.UsersCollection private var usersCollection: CollectionReference,
+) : ViewModel() {
 
 
     private val _totalPoints: MutableLiveData<Int> = MutableLiveData(0)
@@ -36,7 +36,7 @@ class HomeViewModel @Inject constructor(
 
     fun getPoints() {
         viewModelScope.launch {
-
+            _totalPoints.value = sharedPreferences.getInt("count", 0)
             try {
                 firebaseAuth.currentUser?.uid?.let {
                     usersCollection.document(it)
@@ -45,20 +45,19 @@ class HomeViewModel @Inject constructor(
                             val user = it.toObject(User::class.java)!!
                             USER_POINTS_GET = user.points.toString()
                             _totalPoints.value = USER_POINTS_GET.toInt()
+                            sharedPreferences.edit().putInt("count", USER_POINTS_GET.toInt()).apply()
                         }
                         .addOnFailureListener {
                             Log.e("getting data form firebase", it.toString())
                             _totalPoints.value = 23
                         }
                 }
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 Log.e("points failed recovery", e.toString())
             }
 
         }
     }
-
-
 
 
 }

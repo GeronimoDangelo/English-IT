@@ -35,8 +35,8 @@ class SettingsFragment : Fragment() {
     private val homeViewModel: HomeViewModel by viewModels()
 
     @Inject
-    @FirebaseModule.UsersCollection lateinit var usersCollection: CollectionReference
-
+    @FirebaseModule.UsersCollection
+    lateinit var usersCollection: CollectionReference
 
 
     override fun onCreateView(
@@ -57,7 +57,7 @@ class SettingsFragment : Fragment() {
 
     private fun initObserver() {
         homeViewModel.getPoints()
-        homeViewModel.totalPoints.observe(viewLifecycleOwner){
+        homeViewModel.totalPoints.observe(viewLifecycleOwner) {
             binding.points.text = it.toString()
         }
 
@@ -65,22 +65,24 @@ class SettingsFragment : Fragment() {
 
     private fun initListeners() {
         binding.button.setOnClickListener {
-           saveData()
+            saveData()
         }
     }
 
     private fun saveData() {
         homeViewModel.lessonCompleted()
         val total = homeViewModel.totalPoints.value!!
-        sharedPreferences.edit().putInt("count",total).apply()
-        val add = HashMap<String,Any>()
+        sharedPreferences.edit().putInt("count", total).apply()
+        val add = HashMap<String, Any>()
         add["points"] = total
         try {
             firebaseAuth.currentUser?.uid.let {
-                firebaseAuth.currentUser?.let { it1 -> usersCollection.document(it1.uid).set(add, SetOptions.merge()) }
+                firebaseAuth.currentUser?.let { it1 ->
+                    usersCollection.document(it1.uid).set(add, SetOptions.merge())
+                }
             }
         } catch (e: Exception) {
-            Log.e("firebase",e.toString())
+            Log.e("firebase", e.toString())
             activity?.toast(e.toString())
         }
 
