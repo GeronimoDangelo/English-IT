@@ -143,6 +143,36 @@
 
 
     <TextView
+        android:id="@+id/feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feedback or Support"
+        android:textColor="@color/titleItemColor"
+        android:layout_marginTop="20dp"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins_lightitalic"
+        app:layout_constraintTop_toBottomOf="@+id/btnMasinfo"
+        app:layout_constraintBottom_toTopOf="@id/email"
+        app:layout_constraintStart_toStartOf="@id/email"
+        app:layout_constraintEnd_toEndOf="@id/email"
+        />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="twitech22@gmail.com"
+        android:drawableStart="@drawable/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/titleItemColor"
+        android:drawablePadding="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnLogout"
+        app:layout_constraintTop_toBottomOf="@+id/feedback"
+        />
+
+
+    <TextView
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -155,6 +185,6 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnMasinfo" />
+        app:layout_constraintTop_toBottomOf="@id/email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

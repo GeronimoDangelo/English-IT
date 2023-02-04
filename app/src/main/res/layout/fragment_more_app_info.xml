@@ -58,6 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleAbout"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="15dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/titleItemColor"
         android:fontFamily="@font/poppins_regular"
@@ -71,6 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvFirstDesc"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="15dp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/titleItemColor"
         android:fontFamily="@font/poppins_regular"
@@ -84,7 +86,7 @@
         android:text="@string/lucy"
         android:fontFamily="@font/poppins_regular"
         android:padding="15dp"
-        android:textSize="12sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSecondDesc"/>
@@ -96,7 +98,7 @@
         android:textColorLink="@color/titleItemColor"
         android:text="@string/english_speaking_success"
         android:fontFamily="@font/poppins_regular"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:paddingBottom="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,6 +112,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_semibolditalic"
+        android:textSize="15sp"
         android:textColor="@color/titleItemColor"
         android:text="Version of the app: 2.30.23"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
