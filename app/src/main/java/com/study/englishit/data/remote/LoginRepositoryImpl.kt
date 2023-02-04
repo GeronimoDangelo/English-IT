@@ -1,5 +1,7 @@
 package com.study.englishit.data.remote
 
+import android.content.SharedPreferences
+import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.CollectionReference
@@ -7,11 +9,14 @@ import com.google.firebase.firestore.SetOptions
 import com.study.englishit.di.FirebaseModule
 import com.study.englishit.domain.model.User
 import com.study.englishit.domain.repository.LoginRepository
+import com.study.englishit.ui.presentation.home.HomeViewModel
+import com.study.englishit.util.Constants.DATA_POINTS_KEY
 import com.study.englishit.util.Constants.INFO_NOT_SET
 import com.study.englishit.util.Constants.USER_EMAIL_GET
 import com.study.englishit.util.Constants.USER_LOGGED_IN_ID
 import com.study.englishit.util.Constants.USER_POINTS_GET
 import com.study.englishit.util.DataState
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
@@ -20,7 +25,10 @@ import javax.inject.Inject
 class LoginRepositoryImpl @Inject constructor(
     private val auth: FirebaseAuth,
     @FirebaseModule.UsersCollection private val usersCollection: CollectionReference,
+    private val sharedPreferences: SharedPreferences,
 ) : LoginRepository {
+
+
 
 
     override suspend fun login(email: String, password: String): Flow<DataState<Boolean>> = flow {
@@ -104,6 +112,8 @@ class LoginRepositoryImpl @Inject constructor(
                         USER_LOGGED_IN_ID = user.id
                         USER_EMAIL_GET = user.email
                         USER_POINTS_GET = user.points.toString()
+                        sharedPreferences.edit().putInt(DATA_POINTS_KEY,USER_POINTS_GET.toInt())
+
                     }
                     .addOnFailureListener {
                         requestStatus = false
