@@ -7,20 +7,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.study.englishit.R
 import com.study.englishit.databinding.FragmentItemsSavedBinding
+import com.study.englishit.domain.repository.LoginRepository
 import com.study.englishit.ui.presentation.login.LoginActivity
+import com.study.englishit.ui.presentation.login.LoginViewModel
+import com.study.englishit.util.Constants
+import com.study.englishit.util.Constants.DATA_POINTS_KEY
+import com.study.englishit.util.Constants.SHARED_EMAIL
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.coroutineScope
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class ItemsSavedFragment : Fragment() {
 
-
-
-    @Inject
-    lateinit var firebaseAuth: FirebaseAuth
+    private val loginViewModel : LoginViewModel by viewModels()
 
     @Inject
     lateinit var sharedPreferences: SharedPreferences
@@ -35,17 +39,27 @@ class ItemsSavedFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentItemsSavedBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initObservers()
         initListeners()
+
+    }
+
+    private fun initObservers() {
+        val email = sharedPreferences.getString(SHARED_EMAIL,"email not recovered")
+        val totalPoints = sharedPreferences.getInt(DATA_POINTS_KEY,0)
+        binding.tvEmail.text = email
+        binding.tvPoints.text = "Total Points: $totalPoints"
     }
 
     private fun initListeners() {
         binding.btnLogout.setOnClickListener {
-            firebaseAuth.signOut()
+            loginViewModel.logOut()
             sharedPreferences.edit().clear().apply()
             startActivity(Intent(requireContext(), LoginActivity::class.java))
             activity?.finish()

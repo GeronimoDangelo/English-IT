@@ -34,6 +34,7 @@ class DetailsListAdapter() : ListAdapter<PhrasesModel,ItemViewHolder<*>>(DiffUti
             translateBG.visibility = if (isExpandible) View.VISIBLE else View.GONE
 
 
+
             constraitLayoutDesc.setOnClickListener {
                 isAnyItemExpanded(position)
                 item.isExpandable = !item.isExpandable

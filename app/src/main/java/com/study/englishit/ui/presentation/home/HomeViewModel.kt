@@ -9,11 +9,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.SetOptions
 import com.study.englishit.di.FirebaseModule
 import com.study.englishit.domain.model.User
 import com.study.englishit.util.Constants
 import com.study.englishit.util.Constants.DATA_POINTS_KEY
 import com.study.englishit.util.Constants.USER_POINTS_GET
+import com.study.englishit.util.toast
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -59,6 +61,25 @@ class HomeViewModel @Inject constructor(
 
         }
     }
+
+
+    fun saveData(){
+        val total = totalPoints.value!!
+        sharedPreferences.edit().putInt(DATA_POINTS_KEY, total).apply()
+        val add = HashMap<String, Any>()
+        add["points"] = total
+        try {
+            firebaseAuth.currentUser?.uid.let {
+                firebaseAuth.currentUser?.let { it1 ->
+                    usersCollection.document(it1.uid).set(add, SetOptions.merge())
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("firebase", e.toString())
+        }
+    }
+
+
 
 
 }
