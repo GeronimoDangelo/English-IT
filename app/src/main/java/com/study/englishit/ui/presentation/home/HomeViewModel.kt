@@ -12,6 +12,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.study.englishit.di.FirebaseModule
 import com.study.englishit.domain.model.User
 import com.study.englishit.util.Constants
+import com.study.englishit.util.Constants.DATA_POINTS_KEY
 import com.study.englishit.util.Constants.USER_POINTS_GET
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -36,7 +37,7 @@ class HomeViewModel @Inject constructor(
 
     fun getPoints() {
         viewModelScope.launch {
-            _totalPoints.value = sharedPreferences.getInt("count", 0)
+            _totalPoints.value = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
             try {
                 firebaseAuth.currentUser?.uid?.let {
                     usersCollection.document(it)
@@ -45,7 +46,7 @@ class HomeViewModel @Inject constructor(
                             val user = it.toObject(User::class.java)!!
                             USER_POINTS_GET = user.points.toString()
                             _totalPoints.value = USER_POINTS_GET.toInt()
-                            sharedPreferences.edit().putInt("count", USER_POINTS_GET.toInt()).apply()
+                            sharedPreferences.edit().putInt(DATA_POINTS_KEY, USER_POINTS_GET.toInt()).apply()
                         }
                         .addOnFailureListener {
                             Log.e("getting data form firebase", it.toString())

@@ -18,4 +18,7 @@ object Constants {
     const val SHARED_EMAIL = "shared_email"
     const val SHARED_PASSWORD = "password_email"
 
+    const val DATA_POINTS_KEY = "pointsCount"
+
+
 }

@@ -14,6 +14,7 @@ import com.google.firebase.firestore.SetOptions
 import com.study.englishit.databinding.FragmentSettingsBinding
 import com.study.englishit.di.FirebaseModule
 import com.study.englishit.ui.presentation.home.HomeViewModel
+import com.study.englishit.util.Constants.DATA_POINTS_KEY
 import com.study.englishit.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -72,7 +73,7 @@ class SettingsFragment : Fragment() {
     private fun saveData() {
         homeViewModel.lessonCompleted()
         val total = homeViewModel.totalPoints.value!!
-        sharedPreferences.edit().putInt("count", total).apply()
+        sharedPreferences.edit().putInt(DATA_POINTS_KEY, total).apply()
         val add = HashMap<String, Any>()
         add["points"] = total
         try {

@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.firebase.auth.FirebaseAuth
@@ -16,6 +17,7 @@ import javax.inject.Inject
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+    private val homeViewModel: HomeViewModel by viewModels()
 
 
 
@@ -24,8 +26,7 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         val screen = binding.root
         setContentView(screen)
-
-
+        homeViewModel.getPoints()
         NavigationUI.setupWithNavController(
             binding.bottomNavMenu,
             findNavController(R.id.fragmentActivityHome)

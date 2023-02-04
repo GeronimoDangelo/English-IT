@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.study.englishit.ui.presentation.home.HomeActivity
+import com.study.englishit.ui.presentation.home.HomeViewModel
 import com.study.englishit.ui.presentation.login.LoginActivity
 import com.study.englishit.ui.presentation.login.LoginViewModel
 import com.study.englishit.util.Constants.SHARED_EMAIL
@@ -20,6 +21,8 @@ import javax.inject.Inject
 class SplashActivity : AppCompatActivity() {
 
     private val viewmodel: LoginViewModel by viewModels()
+    private val homeViewModel: HomeViewModel by viewModels()
+
 
     @Inject
     lateinit var sharedPreferences: SharedPreferences

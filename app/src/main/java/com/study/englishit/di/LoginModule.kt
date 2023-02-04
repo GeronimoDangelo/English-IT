@@ -1,5 +1,6 @@
 package com.study.englishit.di
 
+import android.content.SharedPreferences
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.study.englishit.data.remote.LoginRepositoryImpl
@@ -18,9 +19,10 @@ object LoginModule {
     @Singleton
     fun provideLoginRepository(
         auth: FirebaseAuth,
-        @FirebaseModule.UsersCollection usersCollection: CollectionReference
+        @FirebaseModule.UsersCollection usersCollection: CollectionReference,
+        sharedPreferences: SharedPreferences
     ): LoginRepository {
-        return LoginRepositoryImpl(auth, usersCollection)
+        return LoginRepositoryImpl(auth, usersCollection, sharedPreferences)
     }
 
 }
