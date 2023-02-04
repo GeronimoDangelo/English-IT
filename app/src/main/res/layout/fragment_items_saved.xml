@@ -13,11 +13,10 @@
         android:layout_width="185dp"
         android:layout_height="185dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="290dp"
+        android:layout_marginTop="120dp"
         android:elevation="5dp"
         app:cardCornerRadius="100dp"
         app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -83,30 +82,64 @@
         app:layout_constraintTop_toBottomOf="@id/tvPoints" />
 
 
-    <TextView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/compartir"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Compartir"
-        android:textSize="17sp"
-        android:textColor="@color/titleItemColor"
         android:layout_marginTop="30dp"
+        android:backgroundTint="@color/whiteMoreTransparent"
+        android:outlineAmbientShadowColor="@color/transparent"
+        android:outlineSpotShadowColor="@color/transparent"
+        app:cardElevation="6dp"
+        android:elevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+        app:layout_constraintTop_toBottomOf="@id/tvEmail">
 
-    <TextView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableEnd="@drawable/next"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:text="Compartir English IT"
+            android:textColor="@color/titleItemColor"
+            android:textSize="17sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btnMasinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/titleItemColor"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Mas info util sobre la app"
-        android:textSize="17sp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/whiteMoreTransparent"
+        android:outlineAmbientShadowColor="@color/transparent"
+        android:outlineSpotShadowColor="@color/transparent"
+        app:cardElevation="6dp"
+        android:elevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/compartir" />
+        app:layout_constraintTop_toBottomOf="@id/compartir">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/next"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:text="About the app and audios"
+            android:textColor="@color/titleItemColor"
+            android:textSize="17sp" />
+
+    </com.google.android.material.card.MaterialCardView>
 
 
     <TextView

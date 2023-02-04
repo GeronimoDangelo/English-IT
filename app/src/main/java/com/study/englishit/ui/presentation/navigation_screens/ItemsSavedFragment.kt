@@ -54,7 +54,7 @@ class ItemsSavedFragment : Fragment() {
         val email = sharedPreferences.getString(SHARED_EMAIL,"email not recovered")
         val totalPoints = sharedPreferences.getInt(DATA_POINTS_KEY,0)
         binding.tvEmail.text = email
-        binding.tvPoints.text = "Total Points: $totalPoints"
+        binding.tvPoints.text = "Puntos: $totalPoints"
     }
 
     private fun initListeners() {
