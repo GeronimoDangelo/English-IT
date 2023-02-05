@@ -13,6 +13,7 @@ import androidx.core.view.children
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.study.englishit.R
+import com.study.englishit.databinding.ActivityHomeBinding
 import com.study.englishit.databinding.CardItemBinding
 import com.study.englishit.databinding.FragmentHomeBinding
 import com.study.englishit.domain.model.CardItemModel
@@ -37,6 +38,8 @@ class HomeFragment : Fragment() {
     lateinit var sharedPreferences: SharedPreferences
 
     private val itemListAdapter = ItemListAdapter()
+
+
 
 
     @Inject
@@ -79,7 +82,6 @@ class HomeFragment : Fragment() {
 
 
             //
-
             when (cardItem.id) {
                 0 -> startActivity(intent)
 

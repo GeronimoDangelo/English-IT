@@ -53,8 +53,23 @@
         app:title="English IT"
         app:subtitleTextColor="@color/white"
         app:navigationIcon="@drawable/star"
-        app:titleTextColor="@color/white"
-        />
+        app:titleTextColor="@color/white">
+
+        <TextView
+            android:id="@+id/points"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:drawablePadding="10dp"
+            android:textSize="18sp"
+            android:drawableEnd="@drawable/vector"
+            android:layout_height="wrap_content"
+            android:text="hola"
+            android:layout_gravity="end|center"
+            android:textColor="@color/white"
+            />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+
 
 
     </com.google.android.material.appbar.AppBarLayout>

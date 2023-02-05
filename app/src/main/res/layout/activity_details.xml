@@ -32,7 +32,7 @@
         android:id="@+id/tvFirstTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Example"
         android:textColor="@color/white"
@@ -42,14 +42,28 @@
         app:layout_constraintTop_toBottomOf="@+id/ivHeadImg" />
 
 
+    <Button
+        android:id="@+id/btnFinish"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Complete lesson ?"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_regular"
+        android:backgroundTint="@color/btnLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvDetails"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDetails"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/transparent"
         android:clipToPadding="false"
-        android:paddingBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingBottom="120dp"
+        app:layout_constraintBottom_toTopOf="@id/btnFinish"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFirstTitle"
