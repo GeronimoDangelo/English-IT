@@ -39,15 +39,15 @@ class HomeActivity : AppCompatActivity() {
             binding.bottomNavMenu,
             findNavController(R.id.fragmentActivityHome),
         )
-        points()
+        initObservers()
     }
 
     override fun onResume() {
         super.onResume()
-        points()
+        initObservers()
     }
 
-    fun points() {
+    fun initObservers() {
         val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0).toString()
         binding.points.text = total
     }
