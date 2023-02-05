@@ -13,10 +13,11 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_itemsSavedFragment"
-            app:destination="@id/itemsSavedFragment" />
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -25,10 +26,11 @@
         tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_itemsSavedFragment"
-            app:destination="@id/itemsSavedFragment" />
-        <action
-            android:id="@+id/action_settingsFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/itemsSavedFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/itemsSavedFragment"
@@ -36,10 +38,16 @@
         android:label="fragment_items_saved"
         tools:layout="@layout/fragment_items_saved" >
         <action
-            android:id="@+id/action_itemsSavedFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-        <action
-            android:id="@+id/action_itemsSavedFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            android:id="@+id/action_itemsSavedFragment_to_moreAppInfoFragment"
+            app:destination="@id/moreAppInfoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/moreAppInfoFragment"
+        android:name="com.study.englishit.ui.presentation.navigation_screens.MoreAppInfoFragment"
+        android:label="fragment_more_app_info"
+        tools:layout="@layout/fragment_more_app_info" />
 </navigation>

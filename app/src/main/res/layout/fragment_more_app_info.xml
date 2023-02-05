@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bghome"
+    tools:context=".ui.presentation.navigation_screens.MoreAppInfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/linearLayoutAbout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center|start"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBackToProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="20dp"
+            android:src="@drawable/arrow_back"
+            app:tint="@color/titleItemColor" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/titleItemColor"
+            android:text="Regresar al perfil"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/titleAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About the app"
+        android:textColor="@color/titleItemColor"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutAbout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/tvFirstDesc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/titleAbout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/titleItemColor"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/this_app"/>
+
+
+    <TextView
+        android:id="@+id/tvSecondDesc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvFirstDesc"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/titleItemColor"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/all_the_audios"/>
+
+    <TextView
+        android:id="@+id/tvLucy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorLink="@color/titleItemColor"
+        android:text="@string/lucy"
+        android:fontFamily="@font/poppins_regular"
+        android:padding="15dp"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSecondDesc"/>
+
+    <TextView
+        android:id="@+id/tvEnglisSucces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorLink="@color/titleItemColor"
+        android:text="@string/english_speaking_success"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="15sp"
+        android:paddingBottom="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLucy"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvEnglisSucces"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_semibolditalic"
+        android:textSize="15sp"
+        android:textColor="@color/titleItemColor"
+        android:text="Version of the app: 2.30.23"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

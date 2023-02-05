@@ -1,42 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
     tools:context=".ui.presentation.navigation_screens.ItemsSavedFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/bgHomeNav"
-        android:text="log out"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center"/>
-    <TextView
-        android:id="@+id/tvTitle2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/btnLogin"
-        android:text="fragment 3"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/tvTitle"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center"/>
 
-    <Button
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvItem"
+        android:layout_width="185dp"
+        android:layout_height="185dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="120dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/transparent"
+        app:strokeColor="@color/transparent">
+
+        <ImageView
+            android:id="@+id/ivFoxItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/card_image_withouth_importace"
+            android:elevation="5dp"
+            android:src="@drawable/cozy" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/tvMyAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="Mi cuenta"
+        android:textColor="@color/titleItemColor"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvItem" />
+
+
+    <TextView
+        android:id="@+id/tvPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="15dp"
+        android:drawableEnd="@drawable/vector"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Total Points: 15"
+        android:textColor="@color/titleItemColor"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMyAccount" />
+
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/userprofile"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center|center_vertical"
+        android:text="example@gmail.com"
+        android:textColor="@color/titleItemColor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPoints" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/compartir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/whiteMoreTransparent"
+        android:outlineAmbientShadowColor="@color/transparent"
+        android:outlineSpotShadowColor="@color/transparent"
+        app:cardElevation="6dp"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEmail">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="10dp"
+            android:drawableEnd="@drawable/share"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:text="Compartir App"
+            android:textColor="@color/titleItemColor"
+            android:textSize="17sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnMasinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/whiteMoreTransparent"
+        android:outlineAmbientShadowColor="@color/transparent"
+        android:outlineSpotShadowColor="@color/transparent"
+        app:cardElevation="6dp"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/compartir">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/next"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:text="About the app and audios"
+            android:textColor="@color/titleItemColor"
+            android:textSize="17sp" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feedback or Support"
+        android:textColor="@color/titleItemColor"
+        android:layout_marginTop="20dp"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins_lightitalic"
+        app:layout_constraintTop_toBottomOf="@+id/btnMasinfo"
+        app:layout_constraintBottom_toTopOf="@id/email"
+        app:layout_constraintStart_toStartOf="@id/email"
+        app:layout_constraintEnd_toEndOf="@id/email"
+        />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="twitech22@gmail.com"
+        android:drawableStart="@drawable/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/titleItemColor"
+        android:drawablePadding="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnLogout"
+        app:layout_constraintTop_toBottomOf="@+id/feedback"
+        />
+
+
+    <TextView
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="log out"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="90dp"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="15dp"
+        android:text="Cerrar Sesion"
+        android:textColor="@color/btnLogin"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-    />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

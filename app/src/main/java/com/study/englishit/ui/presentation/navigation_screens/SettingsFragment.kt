@@ -23,21 +23,10 @@ import javax.inject.Inject
 class SettingsFragment : Fragment() {
 
 
-    @Inject
-    lateinit var sharedPreferences: SharedPreferences
-
-
-    @Inject
-    lateinit var firebaseAuth: FirebaseAuth
-
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
     private val homeViewModel: HomeViewModel by viewModels()
-
-    @Inject
-    @FirebaseModule.UsersCollection
-    lateinit var usersCollection: CollectionReference
 
 
     override fun onCreateView(
@@ -66,28 +55,9 @@ class SettingsFragment : Fragment() {
 
     private fun initListeners() {
         binding.button.setOnClickListener {
-            saveData()
+            homeViewModel.lessonCompleted()
+            homeViewModel.saveData()
         }
-    }
-
-    private fun saveData() {
-        homeViewModel.lessonCompleted()
-        val total = homeViewModel.totalPoints.value!!
-        sharedPreferences.edit().putInt(DATA_POINTS_KEY, total).apply()
-        val add = HashMap<String, Any>()
-        add["points"] = total
-        try {
-            firebaseAuth.currentUser?.uid.let {
-                firebaseAuth.currentUser?.let { it1 ->
-                    usersCollection.document(it1.uid).set(add, SetOptions.merge())
-                }
-            }
-        } catch (e: Exception) {
-            Log.e("firebase", e.toString())
-            activity?.toast(e.toString())
-        }
-
-
     }
 
 
