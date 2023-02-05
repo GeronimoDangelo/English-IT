@@ -2,13 +2,10 @@ package com.study.englishit.di
 
 import com.study.englishit.R
 import com.study.englishit.domain.model.CardItemModel
-import com.study.englishit.domain.model.PhrasesModel
-import com.study.englishit.domain.model.PhrasesModel2
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Qualifier
 import javax.inject.Singleton
 
 

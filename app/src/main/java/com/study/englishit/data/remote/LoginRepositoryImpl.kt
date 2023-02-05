@@ -112,7 +112,7 @@ class LoginRepositoryImpl @Inject constructor(
                         USER_LOGGED_IN_ID = user.id
                         USER_EMAIL_GET = user.email
                         USER_POINTS_GET = user.points.toString()
-                        sharedPreferences.edit().putInt(DATA_POINTS_KEY,USER_POINTS_GET.toInt())
+                        sharedPreferences.edit().putInt(DATA_POINTS_KEY,USER_POINTS_GET.toInt()).apply()
 
                     }
                     .addOnFailureListener {
