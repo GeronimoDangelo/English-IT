@@ -84,7 +84,6 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/compartir"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -101,14 +100,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableEnd="@drawable/next"
-            android:drawablePadding="5dp"
+            android:drawablePadding="10dp"
+            android:drawableEnd="@drawable/share"
             android:fontFamily="@font/poppins_regular"
             android:gravity="center"
             android:paddingVertical="10dp"
             android:paddingStart="15dp"
             android:paddingEnd="10dp"
-            android:text="Compartir English IT"
+            android:text="Compartir App"
             android:textColor="@color/titleItemColor"
             android:textSize="17sp" />
     </com.google.android.material.card.MaterialCardView>
