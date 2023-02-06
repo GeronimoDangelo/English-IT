@@ -1,18 +1,11 @@
 package com.study.englishit.ui.presentation.home
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.AttributeSet
-import android.view.Menu
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.google.firebase.auth.FirebaseAuth
 import com.study.englishit.R
 import com.study.englishit.databinding.ActivityHomeBinding
 import com.study.englishit.util.Constants.DATA_POINTS_KEY
@@ -47,7 +40,7 @@ class HomeActivity : AppCompatActivity() {
         initObservers()
     }
 
-    fun initObservers() {
+    private fun initObservers() {
         homeViewModel.getPoints()
         val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0).toString()
         binding.points.text = total

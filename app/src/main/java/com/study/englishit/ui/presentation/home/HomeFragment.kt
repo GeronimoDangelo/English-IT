@@ -40,7 +40,6 @@ class HomeFragment : Fragment() {
 
     private val itemListAdapter = ItemListAdapter()
 
-    private val homeViewModel: HomeViewModel by viewModels()
 
 
     @Inject
@@ -86,31 +85,36 @@ class HomeFragment : Fragment() {
             when (cardItem.id) {
                 0 -> {
                     startActivity(intent)
-
                 }
 
-                1 -> startActivity(intent)
-
-                2 -> {
-                    if (totalPoints >= 20) {
+                1 -> {
+                    if (totalPoints >= 15) {
                         startActivity(intent)
                     } else {
-                        dialog(20)
+                        dialog(15)
+                    }
+                }
+
+                2 -> {
+                    if (totalPoints >= 45) {
+                        startActivity(intent)
+                    } else {
+                        dialog(45)
                     }
 
                 }
                 3 -> {
-                    if (totalPoints >= 30) {
+                    if (totalPoints >= 60) {
                         startActivity(intent)
                     } else {
-                        dialog(30)
+                        dialog(60)
                     }
                 }
                 4 -> {
-                    if (totalPoints >= 40) {
+                    if (totalPoints >= 80) {
                         startActivity(intent)
                     } else {
-                        dialog(40)
+                        dialog(80)
                     }
                 }
                 5 -> {

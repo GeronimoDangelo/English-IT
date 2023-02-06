@@ -78,8 +78,8 @@ class DetailsActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        fun provideViewmodel() {
-            homeViewModel.lessonCompleted()
+        fun provideViewmodel(points: Int = 15) {
+            homeViewModel.lessonCompleted(points)
             homeViewModel.saveData()
         }
 
@@ -87,7 +87,7 @@ class DetailsActivity : AppCompatActivity() {
             homeViewModel.getPoints()
         }
 
-        fun lessonCompletedAndRecovered(){
+        fun lessonCompletedAndRecovered() {
             binding.btnFinish.text = "Lesson Completed"
             binding.btnFinish.isEnabled = false
             binding.btnFinish.background.setTint(R.color.pointsEarned)
@@ -97,10 +97,10 @@ class DetailsActivity : AppCompatActivity() {
 
         }
 
-        fun lessonNotCompleted(){
+        fun lessonNotCompleted(points: Int = 15, msg: Int = 15) {
             binding.btnFinish.setOnClickListener {
-                provideViewmodel()
-                binding.btnFinish.text = "15 Points Earned"
+                provideViewmodel(points = points)
+                binding.btnFinish.text = "$msg Points Earned"
                 binding.btnFinish.isEnabled = false
                 binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
                 binding.btnFinish.setTextColor(getColor(R.color.white))
@@ -122,29 +122,25 @@ class DetailsActivity : AppCompatActivity() {
 
             }
             1 -> {
-                homeViewModel.getPoints()
+                getPoints()
                 detailsListAdapter.submitList(list1)
                 val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
                 if (total >= 30) {
-                    binding.btnFinish.text = "Lesson Completed"
-                    binding.btnFinish.isEnabled = false
-                    binding.btnFinish.background.setTint(R.color.pointsEarned)
-                    binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
-                    binding.btnFinish.setTextColor(getColor(R.color.white))
+                    lessonCompletedAndRecovered()
                 } else {
-                    binding.btnFinish.setOnClickListener {
-                        homeViewModel.lessonCompleted()
-                        homeViewModel.saveData()
-                        binding.btnFinish.text = "15 Points Earned"
-                        binding.btnFinish.isEnabled = false
-                        binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
-                        binding.btnFinish.setTextColor(getColor(R.color.white))
-                    }
+                    lessonNotCompleted(points = 30, msg = 30)
                 }
 
             }
             2 -> detailsListAdapter.submitList(list2) {
-
+                getPoints()
+                detailsListAdapter.submitList(list1)
+                val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
+                if (total >= 60) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted(points = 20, msg = 20)
+                }
             }
             3 -> detailsListAdapter.submitList(list3)
             4 -> detailsListAdapter.submitList(list4)
