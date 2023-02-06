@@ -48,6 +48,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun initObservers() {
+        homeViewModel.getPoints()
         val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0).toString()
         binding.points.text = total
     }

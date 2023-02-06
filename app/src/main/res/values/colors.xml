@@ -26,4 +26,5 @@
     <color name="translateBG">#A64B4B4B</color>
     <color name="detailsBG">#1A151E</color>
     <color name="detailsTitle">#B4FFFFFF</color>
+    <color name="pointsEarned">#579D5A</color>
 </resources>

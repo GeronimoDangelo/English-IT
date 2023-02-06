@@ -17,8 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph_home"
-        />
+        app:navGraph="@navigation/nav_graph_home" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -26,9 +25,9 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:background="@drawable/bottom_nav_shape"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
+        android:background="@drawable/bottom_nav_shape"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/whiteMoreTransparent"
         app:labelVisibilityMode="selected"
@@ -42,34 +41,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/topBar"
-        app:layout_constraintTop_toTopOf="parent"
         app:elevation="4dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        >
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="English IT"
-        app:subtitleTextColor="@color/white"
-        app:navigationIcon="@drawable/star"
-        app:titleTextColor="@color/white">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/points"
-            android:layout_width="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:drawablePadding="10dp"
-            android:textSize="18sp"
-            android:drawableEnd="@drawable/vector"
-            android:layout_height="wrap_content"
-            android:text="hola"
-            android:layout_gravity="end|center"
-            android:textColor="@color/white"
-            />
-    </com.google.android.material.appbar.MaterialToolbar>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:drawableStart="@drawable/star"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center|center_vertical"
+                android:text="English IT"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
+            <TextView
+                android:id="@+id/points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:layout_marginEnd="28dp"
+                android:drawableEnd="@drawable/vector"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/poppins_semibolditalic"
+                android:text="hola"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+        </com.google.android.material.appbar.MaterialToolbar>
 
 
     </com.google.android.material.appbar.AppBarLayout>

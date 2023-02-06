@@ -1,10 +1,15 @@
 package com.study.englishit.ui.presentation.home
 
+import android.content.SharedPreferences
+import android.graphics.BlendMode
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
+import androidx.compose.ui.res.colorResource
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.study.englishit.R
 import com.study.englishit.data.local.LocalSource.providesPhrases0
 import com.study.englishit.data.local.LocalSource.providesPhrases1
 import com.study.englishit.data.local.LocalSource.providesPhrases10
@@ -23,7 +28,9 @@ import com.study.englishit.data.local.LocalSource.providesPhrases8
 import com.study.englishit.data.local.LocalSource.providesPhrases9
 import com.study.englishit.databinding.ActivityDetailsBinding
 import com.study.englishit.ui.presentation.navigation_screens.adapters.DetailsListAdapter
+import com.study.englishit.util.Constants.DATA_POINTS_KEY
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
@@ -50,14 +57,20 @@ class DetailsActivity : AppCompatActivity() {
     private val list15 = providesPhrases15()
 
 
+    private val homeViewModel: HomeViewModel by viewModels()
+
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val title = intent.getIntExtra("title", 0)
-        val img = getIntent().getIntExtra("img", 0)
-        val id = getIntent().getIntExtra("id", 0)
+        val img = intent.getIntExtra("img", 0)
+        val id = intent.getIntExtra("id", 0)
 
         binding.ivHeadImg.setImageResource(img)
         binding.tvFirstTitle.setText(title)
@@ -65,14 +78,74 @@ class DetailsActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
 
+        fun provideViewmodel() {
+            homeViewModel.lessonCompleted()
+            homeViewModel.saveData()
+        }
+
+        fun getPoints() {
+            homeViewModel.getPoints()
+        }
+
+        fun lessonCompletedAndRecovered(){
+            binding.btnFinish.text = "Lesson Completed"
+            binding.btnFinish.isEnabled = false
+            binding.btnFinish.background.setTint(R.color.pointsEarned)
+            binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
+            binding.btnFinish.setTextColor(getColor(R.color.white))
+
+
+        }
+
+        fun lessonNotCompleted(){
+            binding.btnFinish.setOnClickListener {
+                provideViewmodel()
+                binding.btnFinish.text = "15 Points Earned"
+                binding.btnFinish.isEnabled = false
+                binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
+                binding.btnFinish.setTextColor(getColor(R.color.white))
+            }
+        }
 
 
         when (id) {
             0 -> {
+                getPoints()
                 detailsListAdapter.submitList(list0)
+                val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
+                if (total >= 15) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted()
+                }
+
+
             }
-            1 -> detailsListAdapter.submitList(list1)
-            2 -> detailsListAdapter.submitList(list2)
+            1 -> {
+                homeViewModel.getPoints()
+                detailsListAdapter.submitList(list1)
+                val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
+                if (total >= 30) {
+                    binding.btnFinish.text = "Lesson Completed"
+                    binding.btnFinish.isEnabled = false
+                    binding.btnFinish.background.setTint(R.color.pointsEarned)
+                    binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
+                    binding.btnFinish.setTextColor(getColor(R.color.white))
+                } else {
+                    binding.btnFinish.setOnClickListener {
+                        homeViewModel.lessonCompleted()
+                        homeViewModel.saveData()
+                        binding.btnFinish.text = "15 Points Earned"
+                        binding.btnFinish.isEnabled = false
+                        binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
+                        binding.btnFinish.setTextColor(getColor(R.color.white))
+                    }
+                }
+
+            }
+            2 -> detailsListAdapter.submitList(list2) {
+
+            }
             3 -> detailsListAdapter.submitList(list3)
             4 -> detailsListAdapter.submitList(list4)
             5 -> detailsListAdapter.submitList(list5)
