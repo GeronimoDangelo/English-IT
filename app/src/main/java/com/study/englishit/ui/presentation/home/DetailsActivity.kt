@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.compose.ui.res.colorResource
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.study.englishit.R
 import com.study.englishit.data.local.LocalSource.providesPhrases0
@@ -88,9 +90,8 @@ class DetailsActivity : AppCompatActivity() {
         }
 
         fun lessonCompletedAndRecovered() {
-            binding.btnFinish.text = "Lesson Completed"
-            binding.btnFinish.isEnabled = false
-            binding.btnFinish.background.setTint(R.color.pointsEarned)
+            binding.lessonCompleted.visibility = View.VISIBLE
+            binding.btnFinish.visibility = View.GONE
             binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
             binding.btnFinish.setTextColor(getColor(R.color.white))
 
@@ -100,61 +101,176 @@ class DetailsActivity : AppCompatActivity() {
         fun lessonNotCompleted(points: Int = 15, msg: Int = 15) {
             binding.btnFinish.setOnClickListener {
                 provideViewmodel(points = points)
-                binding.btnFinish.text = "$msg Points Earned"
+                binding.btnFinish.text = "$msg Puntos Ganados!"
                 binding.btnFinish.isEnabled = false
                 binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
                 binding.btnFinish.setTextColor(getColor(R.color.white))
             }
         }
 
+        val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
 
         when (id) {
+            //BASIC PHRASES
             0 -> {
                 getPoints()
                 detailsListAdapter.submitList(list0)
-                val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
                 if (total >= 15) {
                     lessonCompletedAndRecovered()
                 } else {
                     lessonNotCompleted()
                 }
-
-
             }
+            //CASUAL
             1 -> {
                 getPoints()
                 detailsListAdapter.submitList(list1)
-                val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
-                if (total >= 30) {
+                if (total >= 45) {
                     lessonCompletedAndRecovered()
                 } else {
                     lessonNotCompleted(points = 30, msg = 30)
                 }
 
             }
-            2 -> detailsListAdapter.submitList(list2) {
+            // CONNECTORS
+            2 -> {
                 getPoints()
-                detailsListAdapter.submitList(list1)
-                val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
-                if (total >= 60) {
+                detailsListAdapter.submitList(list2)
+                if (total >= 65) {
                     lessonCompletedAndRecovered()
                 } else {
                     lessonNotCompleted(points = 20, msg = 20)
                 }
             }
-            3 -> detailsListAdapter.submitList(list3)
-            4 -> detailsListAdapter.submitList(list4)
-            5 -> detailsListAdapter.submitList(list5)
-            6 -> detailsListAdapter.submitList(list6)
-            7 -> detailsListAdapter.submitList(list7)
-            8 -> detailsListAdapter.submitList(list8)
-            9 -> detailsListAdapter.submitList(list9)
-            10 -> detailsListAdapter.submitList(list10)
-            11 -> detailsListAdapter.submitList(list11)
-            12 -> detailsListAdapter.submitList(list12)
-            13 -> detailsListAdapter.submitList(list13)
-            14 -> detailsListAdapter.submitList(list14)
-            15 -> detailsListAdapter.submitList(list15)
+            // ENDING A CONVERSATION
+            3 -> {
+                getPoints()
+                detailsListAdapter.submitList(list3)
+                if (total >= 80) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted()
+                }
+            }
+            // JOB CHATTING
+            4 -> {
+                getPoints()
+                detailsListAdapter.submitList(list4)
+                if (total >= 90) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted(10, 10)
+                }
+            }
+            // SOCIAL TECH
+            5 -> {
+                detailsListAdapter.submitList(list5)
+                getPoints()
+                if (total >= 105) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted()
+                }
+            }
+            // CASUAL 2
+            6 -> {
+                detailsListAdapter.submitList(list6)
+                getPoints()
+                if (total >= 120) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted()
+                }
+            }
+            // AFTER WORK
+            7 -> {
+                detailsListAdapter.submitList(list7)
+                getPoints()
+                if (total >= 135) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted()
+                }
+            }
+            //SHORT OF TIME
+            8 -> {
+                detailsListAdapter.submitList(list8)
+                getPoints()
+                if (total >= 150) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted()
+                }
+            }
+            //JOB INTERVIEW
+            9 -> detailsListAdapter.submitList(list9) {
+                getPoints()
+                if (total >= 165) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted()
+                }
+            }
+            // CAREER CHANGE
+            10 -> {
+                detailsListAdapter.submitList(list10)
+                getPoints()
+                if (total >= 305) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted(140,140)
+                }
+            }
+            // YOURSELF
+            11 -> {
+                detailsListAdapter.submitList(list11)
+                getPoints()
+                if (total >= 325) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted(20,20)
+                }
+            }
+            // OPINION
+            12 ->  {
+                detailsListAdapter.submitList(list12)
+                getPoints()
+                if (total >= 340) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted()
+                }
+            }
+            // PROBABILITY
+            13 ->  {
+                detailsListAdapter.submitList(list13)
+                getPoints()
+                if (total >= 355) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted()
+                }
+            }
+            // SHORT ANSWERS
+            14 ->  {
+                getPoints()
+                detailsListAdapter.submitList(list14)
+                if (total >= 485) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted(130,130)
+                }
+            }
+            // HOMETOWN
+            15 -> {
+                getPoints()
+                detailsListAdapter.submitList(list15)
+                if (total >= 2023) {
+                    lessonCompletedAndRecovered()
+                } else {
+                    lessonNotCompleted(1538,1538)
+                }
+            }
         }
 
 

@@ -42,17 +42,34 @@
         app:layout_constraintTop_toBottomOf="@+id/ivHeadImg" />
 
 
+    <TextView
+        android:id="@+id/lessonCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leccion Completada"
+        android:visibility="invisible"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins_lightitalic"
+        android:layout_marginTop="-5dp"
+        android:textColor="@color/pointsEarned"
+        app:layout_constraintTop_toBottomOf="@id/tvFirstTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnFinish"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Complete lesson?"
+        android:layout_height="55dp"
+        android:text="¿Leccion Completada?"
+        android:textSize="12sp"
         android:textColor="@color/white"
         android:backgroundTint="@color/btnLogin"
         android:fontFamily="@font/poppins_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvDetails"
+        android:layout_marginBottom="-8dp"
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -66,7 +83,7 @@
         app:layout_constraintBottom_toTopOf="@id/btnFinish"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFirstTitle"
+        app:layout_constraintTop_toBottomOf="@+id/lessonCompleted"
         tools:itemCount="3"
         tools:listitem="@layout/phrases_item" />
 
