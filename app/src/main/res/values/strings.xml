@@ -34,29 +34,32 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="send_recovery_password">Send recovery password</string>
     <string name="card_image_withouth_importace">card image withouth importace</string>
-    <string name="computer_terms_title">Basic Phrases</string>
+    <string name="computer_terms_title">Frases basicas</string>
     <string name="useful_verbs">Casual</string>
-    <string name="greetings">Connectors</string>
-    <string name="daily_routine">Ending a \n conversation</string>
-    <string name="pg_terms">Job \n Chatting</string>
+    <string name="greetings">Conectores</string>
+    <string name="daily_routine">Terminar una conversación</string>
+    <string name="pg_terms">Asuntos de trabajo</string>
     <string name="social_tech">Social Tech</string>
     <string name="hobbies">Casual 2</string>
-    <string name="interviews_beginner">After Work</string>
-    <string name="code_terms">Short of Time</string>
-    <string name="useful_verbs2">Job Interview</string>
-    <string name="meetings">Career Change</string>
-    <string name="job_terms">Job terms</string>
-    <string name="travel">Yourself</string>
+    <string name="interviews_beginner">Despues del trabajo </string>
+    <string name="code_terms">Poco Tiempo</string>
+    <string name="useful_verbs2">Entrevista de trabajo</string>
+    <string name="meetings">Cambio de carrera</string>
+    <string name="travel">Sobre ti</string>
     <string name="vacations">Opinion</string>
-    <string name="recruiter">Probability</string>
-    <string name="software">Short Answers</string>
-    <string name="algorithms">Hometown</string>
-    <string name="interviewsfinal">Interviews</string>
-    <string name="job_meeting">Job Meeting</string>
+    <string name="recruiter">Probabilidades</string>
+    <string name="software">Casual 3</string>
+    <string name="algorithms">Lugar</string>
+    <string name="interviewsfinal">Entrevista de trabajo 2</string>
+    <string name="job_meeting">Reunion de Trabajo</string>
     <string name="this_app">This app was made to help people with real examples of english phrases. This was develop by one developer in months , so if theres a wrong translation please let me know via email. Enjoy the app as much as I did creating it!  </string>
     <string name="all_the_audios">All the audios for this app was thank to the following Youtubers. Im not breaking any policy terms , but if you are the properties from the audios and you have some problem , please let me know and i will respond immediately and assist whatever thing you want to do with those.  </string>
     <string name="lucy"><a href="https://www.youtube.com/@EnglishwithLucy">English with Lucy</a></string>
     <string name="english_speaking_success"><a href="https://www.youtube.com/@EnglishSpeakingSuccess">English Speaking Success</a></string>
+    <string name="linkedin">Linkedin</string>
+    <string name="perfildecv">Perfil de CV</string>
+    <string name="zoom">Charlas por Zoom</string>
+    <string name="experienciaconempresas">Experiencia en empresas</string>
 
 
 </resources>

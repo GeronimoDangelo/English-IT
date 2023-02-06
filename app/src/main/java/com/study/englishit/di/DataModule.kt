@@ -35,6 +35,10 @@ object DataModule {
             CardItemModel(id = 15, R.string.algorithms, img = R.drawable.image4),
             CardItemModel(id = 16, R.string.interviewsfinal, img = R.drawable.image8),
             CardItemModel(id = 17, R.string.job_meeting, img = R.drawable.zoom4),
+            CardItemModel(id = 18, R.string.linkedin, img = R.drawable.lock1),
+            CardItemModel(id = 19, R.string.perfildecv, img = R.drawable.lock2),
+            CardItemModel(id = 20, R.string.zoom, img = R.drawable.lock3),
+            CardItemModel(id = 21, R.string.experienciaconempresas, img = R.drawable.lock4),
         )
     }
 

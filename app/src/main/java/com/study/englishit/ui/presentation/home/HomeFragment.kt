@@ -40,8 +40,6 @@ class HomeFragment : Fragment() {
 
     private val itemListAdapter = ItemListAdapter()
 
-    private val homeViewModel: HomeViewModel by viewModels()
-
 
     @Inject
     lateinit var dataList: List<CardItemModel>
@@ -84,128 +82,196 @@ class HomeFragment : Fragment() {
 
             //
             when (cardItem.id) {
+                //BASIC PHRASES
                 0 -> {
-                    startActivity(intent)
-
+                    startActivity(intent)            // GIVE 15 POINTS = 0 + 15 = 15
                 }
-
-                1 -> startActivity(intent)
+                //CASUAL
+                1 -> {
+                    if (totalPoints >= 15) {
+                        startActivity(intent)       // GIVE 30 POINTS = 15 + 30 = 45
+                    } else {
+                        dialog(15)
+                    }
+                }
+                // CONNECTORS
 
                 2 -> {
-                    if (totalPoints >= 20) {
-                        startActivity(intent)
+                    if (totalPoints >= 45) {
+                        startActivity(intent)           // GIVE 20 POINTS = 45 + 20 = 65
                     } else {
-                        dialog(20)
+                        dialog(45)
                     }
 
                 }
+                // ENDING A CONVERSATION
+
                 3 -> {
-                    if (totalPoints >= 30) {
+                    if (totalPoints >= 65) {
                         startActivity(intent)
                     } else {
-                        dialog(30)
+                        dialog(65)              // GIVE 15 POINTS = 80
+
                     }
                 }
+
+                // JOB CHATTING
+
                 4 -> {
-                    if (totalPoints >= 40) {
-                        startActivity(intent)
-                    } else {
-                        dialog(40)
-                    }
-                }
-                5 -> {
-                    if (totalPoints >= 60) {
-                        startActivity(intent)
-                    } else {
-                        dialog(60)
-                    }
-                }
-                6 -> {
-                    if (totalPoints >= 70) {
-                        startActivity(intent)
-                    } else {
-                        dialog(70)
-                    }
-                }
-                7 -> {
                     if (totalPoints >= 80) {
                         startActivity(intent)
-                    } else {
+                    } else {                         // GIVE 10 POINTS = 90
+
                         dialog(80)
                     }
                 }
-                8 -> {
+                // SOCIAL TECH
+
+                5 -> {
                     if (totalPoints >= 90) {
-                        startActivity(intent)
+                        startActivity(intent)                 // GIVE 15 POINTS = 90 +15 = 105
+
                     } else {
                         dialog(90)
                     }
                 }
-                9 -> {
-                    if (totalPoints >= 100) {
+                // CASUAL 2
+
+                6 -> {
+                    if (totalPoints >= 105) {                   // GIVE 15 POINTS = 105 + 15 = 120
+
                         startActivity(intent)
                     } else {
-                        dialog(100)
+                        dialog(105)
                     }
                 }
-                10 -> {
-                    if (totalPoints >= 110) {
-                        startActivity(intent)
-                    } else {
-                        dialog(110)
-                    }
-                }
-                11 -> {
+                // AFTER WORK
+
+                7 -> {
                     if (totalPoints >= 120) {
                         startActivity(intent)
-                    } else {
+                    } else {                        // GIVE 15 POINTS = 120 + 15 = 135
                         dialog(120)
                     }
                 }
-                12 -> {
-                    if (totalPoints >= 130) {
+                //SHORT OF TIME
+
+                8 -> {
+                    if (totalPoints >= 135) {
                         startActivity(intent)
-                    } else {
-                        dialog(130)
+                    } else {                            // GIVE 15 POINTS = 135 + 15 = 150
+                        dialog(135)
                     }
                 }
-                13 -> {
-                    if (totalPoints >= 140) {
-                        startActivity(intent)
-                    } else {
-                        dialog(140)
-                    }
-                }
-                14 -> {
+                //JOB INTERVIEW
+
+                9 -> {
                     if (totalPoints >= 150) {
                         startActivity(intent)
-                    } else {
+                    } else {                            // GIVE 15 POINTS = 150 + 15 = 165
                         dialog(150)
                     }
                 }
+                // CAREER CHANGE
+
+                10 -> {
+                    if (totalPoints >= 165) {
+                        startActivity(intent)
+                    } else {                         // GIVE 140 POINTS = 165 + 140 = 305
+                        dialog(165)
+                    }
+                }
+                // YOURSELF
+
+                11 -> {
+                    if (totalPoints >= 305) {
+                        startActivity(intent)        // GIVE 20 POINTS = 305 + 20 = 325
+                    } else {
+                        dialog(305)
+                    }
+                }
+                // OPINION
+
+                12 -> {
+                    if (totalPoints >= 325) {
+                        startActivity(intent)        // GIVE 15 POINTS = 325 + 15 = 340
+                    } else {
+                        dialog(325)
+                    }
+                }
+                // PROBABILITY
+
+                13 -> {
+                    if (totalPoints >= 340) {
+                        startActivity(intent)
+                    } else {                         // GIVE 15 POINTS = 340 + 15 = 355
+                        dialog(340)
+                    }
+                }
+                // SHORT ANSWERS
+
+                14 -> {
+                    if (totalPoints >= 355) {
+                        startActivity(intent)
+                    } else {                         // GIVE 130 POINTS = 355 + 130 = 485
+                        dialog(355)
+                    }
+                }
+                // HOMETOWN
+
                 15 -> {
-                    if (totalPoints >= 160) {
+                    if (totalPoints >= 485) {
                         startActivity(intent)
-                    } else {
-                        dialog(160)
+                    } else {                     // GIVE 1538 POINTS = 485 + 1538 = 2023
+                        dialog(485)
                     }
                 }
-                16 -> {
-                    if (totalPoints >= 170) {
-                        startActivity(intent)
-                    } else {
-                        dialog(170)
-                    }
-                }
-                17 -> {
-                    if (totalPoints >= 180) {
-                        startActivity(intent)
-                    } else {
-                        dialog(180)
-                    }
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //THESE ARE CLOSED
+                16 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2024)
                 }
 
-
+                17 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2025)
+                }
+                18 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2026)
+                }
+                19 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2027)
+                }
+                20 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2028)
+                }
+                21 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2029)
+                }
             }
         }
     }
@@ -217,21 +283,26 @@ class HomeFragment : Fragment() {
             overScrollMode = View.OVER_SCROLL_NEVER
             setHasFixedSize(false)
         }
-
-
         itemListAdapter.submitList(dataList)
-
     }
 
     private fun dialog(points: Int) {
         AlertDialog.Builder(requireContext())
-            .setTitle("Lesson Locked \uD83E\uDD8A")
-            .setMessage("You need $points points to unlock this lesson. \n\nYou can earn more points completing lessons and pressing the button at the final of each list  \uD83E\uDD73 ")
+            .setTitle("Leccion Bloqueada \uD83E\uDD8A")
+            .setMessage("Necesitas $points puntos para desbloquear esta leccion. Puedes ganar mas puntos completando previas lecciones!  \uD83E\uDD73 ")
             .setPositiveButton("Ok") { _, _ ->
-
             }.create()
             .show()
     }
 
+
+    private fun dialogNoAvailable() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Leccion Bloqueada \uD83E\uDD8A")
+            .setMessage("Lamento que las lecciones sean solo eso. Soy un solo programador. Pero si esta aplicación obtiene más descargas/estudiantes.. ¡Lanzaré muchas más! ¡Así que mantente alerta!")
+            .setPositiveButton("Ok") { _, _ ->
+            }.create()
+            .show()
+    }
 
 }

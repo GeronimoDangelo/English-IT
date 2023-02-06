@@ -33,9 +33,9 @@ class HomeViewModel @Inject constructor(
     val totalPoints: LiveData<Int> = _totalPoints
 
 
-    fun lessonCompleted() {
+    fun lessonCompleted(points: Int = 15) {
         viewModelScope.launch {
-            _totalPoints.value = _totalPoints.value?.plus(15)
+            _totalPoints.value = _totalPoints.value?.plus(points)
         }
     }
 
