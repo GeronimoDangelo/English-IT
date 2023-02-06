@@ -1,9 +1,11 @@
 package com.study.englishit.ui.presentation.home
 
+import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.study.englishit.R
@@ -44,5 +46,27 @@ class HomeActivity : AppCompatActivity() {
         homeViewModel.getPoints()
         val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0).toString()
         binding.points.text = total
+
+        val totalPoints = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
+
+        if (totalPoints == 45) {
+            dialog()
+        }
+        if (totalPoints == 105) {
+            dialog()
+        }
+
     }
+
+
+    private fun dialog() {
+        AlertDialog.Builder(this)
+            .setTitle("¡Felicidades! \uD83E\uDD8A")
+            .setMessage("Has desbloqueado un nuevo logro! Ve a logros y descubre tu recompensa!")
+            .setPositiveButton("Ok") { _, _ ->
+            }.create()
+            .show()
+    }
+
+
 }

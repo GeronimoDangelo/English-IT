@@ -41,7 +41,10 @@ class SettingsFragment : Fragment() {
     private fun initObservers() {
         val totalPoints = sharedPreferences.getInt(DATA_POINTS_KEY,0)
         if (totalPoints >= 45){
-        binding.firstConstaint.alpha = 1F
+            binding.firstConstaint.alpha = 1f
+        }
+        if (totalPoints >= 100) {
+            binding.firstConstaint2.alpha = 1f
         }
     }
 
