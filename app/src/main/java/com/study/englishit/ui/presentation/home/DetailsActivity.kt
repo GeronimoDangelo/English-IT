@@ -100,6 +100,7 @@ class DetailsActivity : AppCompatActivity() {
 
         fun lessonNotCompleted(points: Int = 15, msg: Int = 15) {
             binding.btnFinish.setOnClickListener {
+                playSound(R.raw.btn)
                 provideViewmodel(points = points)
                 binding.btnFinish.text = "$msg Puntos Ganados!"
                 binding.btnFinish.isEnabled = false

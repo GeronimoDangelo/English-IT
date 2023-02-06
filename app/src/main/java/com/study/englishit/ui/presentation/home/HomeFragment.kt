@@ -241,21 +241,37 @@ class HomeFragment : Fragment() {
                 //
                 //
                 //THESE ARE CLOSED
-                16 -> {
-                    if (totalPoints >= 170) {
-                        dialog(2023)
-
-                    }
-
-                }
-                17 -> {
-                    if (totalPoints >= 180) {
-                        dialog(2023)
-
-                    }
+                16 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2024)
                 }
 
-
+                17 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2025)
+                }
+                18 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2026)
+                }
+                19 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2027)
+                }
+                20 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2028)
+                }
+                21 -> if (totalPoints >= 2023) {
+                    dialogNoAvailable()
+                } else {
+                    dialog(2029)
+                }
             }
         }
     }
@@ -267,21 +283,26 @@ class HomeFragment : Fragment() {
             overScrollMode = View.OVER_SCROLL_NEVER
             setHasFixedSize(false)
         }
-
-
         itemListAdapter.submitList(dataList)
-
     }
 
     private fun dialog(points: Int) {
         AlertDialog.Builder(requireContext())
-            .setTitle("Lesson Locked \uD83E\uDD8A")
-            .setMessage("You need $points points to unlock this lesson. \n\nYou can earn more points completing lessons and pressing the button at the final of each list  \uD83E\uDD73 ")
+            .setTitle("Leccion Bloqueada \uD83E\uDD8A")
+            .setMessage("Necesitas $points puntos para desbloquear esta leccion. Puedes ganar mas puntos completando previas lecciones!  \uD83E\uDD73 ")
             .setPositiveButton("Ok") { _, _ ->
-
             }.create()
             .show()
     }
 
+
+    private fun dialogNoAvailable() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Leccion Bloqueada \uD83E\uDD8A")
+            .setMessage("Lamento que las lecciones sean solo eso. Soy un solo programador. Pero si esta aplicación obtiene más descargas/estudiantes.. ¡Lanzaré muchas más! ¡Así que mantente alerta!")
+            .setPositiveButton("Ok") { _, _ ->
+            }.create()
+            .show()
+    }
 
 }

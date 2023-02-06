@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/card_image_withouth_importace"
             android:elevation="5dp"
-            android:src="@drawable/cozy" />
+            android:src="@drawable/lock3" />
 
     </com.google.android.material.card.MaterialCardView>
 
