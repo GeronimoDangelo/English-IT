@@ -1,34 +1,362 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bghome"
     tools:context=".ui.presentation.navigation_screens.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
-
-    <TextView
-        android:id="@+id/points"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/titles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Points:"
-        android:layout_margin="20dp"
-        android:textColor="@color/bgHomeNav"
-        android:textSize="30sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/logros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Logros"
+            android:textColor="@color/logros"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_margin="20dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/logros"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/logros"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lesson Completed (+5 points)"
-        app:layout_constraintTop_toBottomOf="@id/points"/>
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:clipToPadding="false"
+        android:paddingBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titles">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstConstaint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.3"
+                android:background="@drawable/logrosshape"
+                android:backgroundTint="@color/white"
+                android:clipToOutline="true"
+                android:elevation="4dp"
+                app:layout_constraintBottom_toTopOf="@id/firstConstaint2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fox1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:clipToOutline="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/imageviewlogros"
+                        android:clipToOutline="true"
+                        android:src="@drawable/logro5" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Beginner"
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/desc1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/desc1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="¡Felicidades! Has ganado este logro por haber llegado a los 45 puntos"
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintStart_toEndOf="@id/fox1"
+                    app:layout_constraintTop_toBottomOf="@id/title1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstConstaint2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+
+                android:layout_marginTop="40dp"
+                android:alpha="0.3"
+                android:background="@drawable/logrosshape"
+                android:backgroundTint="@color/white"
+                android:clipToOutline="true"
+                android:elevation="4dp"
+                app:layout_constraintTop_toBottomOf="@+id/firstConstaint"
+                tools:layout_editor_absoluteX="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fox12"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:clipToOutline="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/imageviewlogros"
+                        android:clipToOutline="true"
+                        android:src="@drawable/logro1" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/title12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Amateur"
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/desc12"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/desc12"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="¡Felicidades! Por haber superado los 100 puntos! Estas aprendiendo mucho!"
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/fox12"
+                    app:layout_constraintTop_toBottomOf="@id/title12" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstConstaint3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="40dp"
+
+                android:alpha="0.3"
+                android:background="@drawable/logrosshape"
+                android:backgroundTint="@color/white"
+                android:clipToOutline="true"
+                android:elevation="4dp"
+                app:layout_constraintTop_toBottomOf="@+id/firstConstaint2"
+                tools:layout_editor_absoluteX="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fox3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:clipToOutline="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/imageviewlogros"
+                        android:clipToOutline="true"
+                        android:src="@drawable/logro2" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/title3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Midlevel"
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/desc3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/desc3"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="¡Felicidades! Acabas de superar los 150 puntos! Hasta ahora tenes un manejo del ingles que te sera util en cualquier momento de la vida!"
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="10.5sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/fox3"
+                    app:layout_constraintTop_toBottomOf="@id/title3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstConstaint4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="40dp"
+                android:alpha="0.3"
+                android:background="@drawable/logrosshape"
+
+                android:backgroundTint="@color/white"
+                android:clipToOutline="true"
+                android:elevation="4dp"
+                app:layout_constraintTop_toBottomOf="@+id/firstConstaint3"
+                tools:layout_editor_absoluteX="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fox4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:clipToOutline="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/imageviewlogros"
+                        android:clipToOutline="true"
+                        android:src="@drawable/logro4" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/title4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Semi Senior"
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/desc4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/desc4"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="¡Felicidades! Acabas de superar los 300 puntos! Utiliza el ingles que has aprendido y demuestrale a todos lo que has avanzado!"
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="10.5sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/fox4"
+                    app:layout_constraintTop_toBottomOf="@id/title4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstConstaint5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="40dp"
+                android:alpha="0.3"
+                android:background="@drawable/logrosshape"
+                android:backgroundTint="@color/white"
+                android:clipToOutline="true"
+                android:elevation="4dp"
+                app:layout_constraintTop_toBottomOf="@+id/firstConstaint4"
+                tools:layout_editor_absoluteX="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fox5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:clipToOutline="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/imageviewlogros"
+                        android:clipToOutline="true"
+                        android:src="@drawable/logro3" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/title5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Senior"
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/desc5"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/desc5"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="¡Felicidades! Ya has conseguido mas de 2000 puntos! Ya estas preparado para cualquier tipo de desafio que te propongas! "
+                    android:textColor="@color/titleItemColor"
+                    android:textSize="10.5sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/fox5"
+                    app:layout_constraintTop_toBottomOf="@id/title5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
