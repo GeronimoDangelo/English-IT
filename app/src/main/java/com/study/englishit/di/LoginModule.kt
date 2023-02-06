@@ -22,7 +22,7 @@ object LoginModule {
         @FirebaseModule.UsersCollection usersCollection: CollectionReference,
         sharedPreferences: SharedPreferences
     ): LoginRepository {
-        return LoginRepositoryImpl(auth, usersCollection, sharedPreferences)
+        return LoginRepositoryImpl(auth = auth, usersCollection = usersCollection, sharedPreferences =  sharedPreferences)
     }
 
 }

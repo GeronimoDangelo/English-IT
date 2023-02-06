@@ -18,18 +18,19 @@ import com.study.englishit.util.Constants.USER_POINTS_GET
 import com.study.englishit.util.toast
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val sharedPreferences: SharedPreferences,
     private val firebaseAuth: FirebaseAuth,
-    @FirebaseModule.UsersCollection private var usersCollection: CollectionReference,
+    @FirebaseModule.UsersCollection private val usersCollection: CollectionReference,
 ) : ViewModel() {
 
 
     private val _totalPoints: MutableLiveData<Int> = MutableLiveData(0)
-    var totalPoints: LiveData<Int> = _totalPoints
+    val totalPoints: LiveData<Int> = _totalPoints
 
     fun lessonCompleted() {
         viewModelScope.launch {
@@ -41,7 +42,7 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             _totalPoints.value = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
             try {
-                firebaseAuth.currentUser?.uid?.let {
+                firebaseAuth.currentUser?.uid?.let { it ->
                     usersCollection.document(it)
                         .get()
                         .addOnSuccessListener {
@@ -53,7 +54,7 @@ class HomeViewModel @Inject constructor(
                         .addOnFailureListener {
                             Log.e("getting data form firebase", it.toString())
                             _totalPoints.value = 23
-                        }
+                        }.await()
                 }
             } catch (e: Exception) {
                 Log.e("points failed recovery", e.toString())
@@ -66,12 +67,12 @@ class HomeViewModel @Inject constructor(
     fun saveData(){
         val total = totalPoints.value!!
         sharedPreferences.edit().putInt(DATA_POINTS_KEY, total).apply()
-        val add = HashMap<String, Any>()
+        val add = HashMap<String, Int>()
         add["points"] = total
         try {
             firebaseAuth.currentUser?.uid.let {
-                firebaseAuth.currentUser?.let { it1 ->
-                    usersCollection.document(it1.uid).set(add, SetOptions.merge())
+                firebaseAuth.currentUser?.let { firebaseUser ->
+                    usersCollection.document(firebaseUser.uid).set(add, SetOptions.merge())
                 }
             }
         } catch (e: Exception) {

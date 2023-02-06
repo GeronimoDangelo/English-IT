@@ -9,5 +9,5 @@ import kotlinx.parcelize.Parcelize
 data class CardItemModel(
     val id : Int,
     @StringRes val title: Int,
-    @DrawableRes val img: Int
+    @DrawableRes val img: Int,
 ) : Parcelable

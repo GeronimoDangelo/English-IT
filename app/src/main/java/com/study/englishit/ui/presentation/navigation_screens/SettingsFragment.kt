@@ -1,23 +1,14 @@
 package com.study.englishit.ui.presentation.navigation_screens
 
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.SetOptions
 import com.study.englishit.databinding.FragmentSettingsBinding
-import com.study.englishit.di.FirebaseModule
 import com.study.englishit.ui.presentation.home.HomeViewModel
-import com.study.englishit.util.Constants.DATA_POINTS_KEY
-import com.study.englishit.util.toast
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SettingsFragment : Fragment() {
@@ -47,8 +38,8 @@ class SettingsFragment : Fragment() {
 
     private fun initObserver() {
         homeViewModel.getPoints()
-        homeViewModel.totalPoints.observe(viewLifecycleOwner) {
-            binding.points.text = it.toString()
+        homeViewModel.totalPoints.observe(viewLifecycleOwner) { points ->
+            binding.points.text = points.toString()
         }
 
     }
