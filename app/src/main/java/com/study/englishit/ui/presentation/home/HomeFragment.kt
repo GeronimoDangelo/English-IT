@@ -13,6 +13,7 @@ import androidx.core.view.children
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.study.englishit.R
+import com.study.englishit.databinding.ActivityDetailsBinding
 import com.study.englishit.databinding.ActivityHomeBinding
 import com.study.englishit.databinding.CardItemBinding
 import com.study.englishit.databinding.FragmentHomeBinding
@@ -39,7 +40,7 @@ class HomeFragment : Fragment() {
 
     private val itemListAdapter = ItemListAdapter()
 
-
+    private val homeViewModel: HomeViewModel by viewModels()
 
 
     @Inject
@@ -83,7 +84,10 @@ class HomeFragment : Fragment() {
 
             //
             when (cardItem.id) {
-                0 -> startActivity(intent)
+                0 -> {
+                    startActivity(intent)
+
+                }
 
                 1 -> startActivity(intent)
 

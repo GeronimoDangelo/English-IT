@@ -32,9 +32,10 @@ class HomeViewModel @Inject constructor(
     private val _totalPoints: MutableLiveData<Int> = MutableLiveData(0)
     val totalPoints: LiveData<Int> = _totalPoints
 
+
     fun lessonCompleted() {
         viewModelScope.launch {
-            _totalPoints.value = _totalPoints.value?.plus(5)
+            _totalPoints.value = _totalPoints.value?.plus(15)
         }
     }
 
@@ -49,7 +50,8 @@ class HomeViewModel @Inject constructor(
                             val user = it.toObject(User::class.java)!!
                             USER_POINTS_GET = user.points.toString()
                             _totalPoints.value = USER_POINTS_GET.toInt()
-                            sharedPreferences.edit().putInt(DATA_POINTS_KEY, USER_POINTS_GET.toInt()).apply()
+                            sharedPreferences.edit()
+                                .putInt(DATA_POINTS_KEY, USER_POINTS_GET.toInt()).apply()
                         }
                         .addOnFailureListener {
                             Log.e("getting data form firebase", it.toString())
@@ -64,23 +66,25 @@ class HomeViewModel @Inject constructor(
     }
 
 
-    fun saveData(){
-        val total = totalPoints.value!!
-        sharedPreferences.edit().putInt(DATA_POINTS_KEY, total).apply()
-        val add = HashMap<String, Int>()
-        add["points"] = total
-        try {
-            firebaseAuth.currentUser?.uid.let {
-                firebaseAuth.currentUser?.let { firebaseUser ->
-                    usersCollection.document(firebaseUser.uid).set(add, SetOptions.merge())
+    fun saveData() {
+        viewModelScope.launch {
+            val total = totalPoints.value!!
+            sharedPreferences.edit().putInt(DATA_POINTS_KEY, total).apply()
+            val add = HashMap<String, Int>()
+            add["points"] = total
+            try {
+                firebaseAuth.currentUser?.uid.let {
+                    firebaseAuth.currentUser?.let { firebaseUser ->
+                        usersCollection.document(firebaseUser.uid).set(add, SetOptions.merge())
+                    }
                 }
+            } catch (e: Exception) {
+                Log.e("firebase", e.toString())
             }
-        } catch (e: Exception) {
-            Log.e("firebase", e.toString())
+
         }
+
     }
-
-
 
 
 }
