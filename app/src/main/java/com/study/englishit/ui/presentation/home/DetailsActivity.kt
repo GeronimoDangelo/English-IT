@@ -269,7 +269,7 @@ class DetailsActivity : AppCompatActivity() {
                 if (total >= 2023) {
                     lessonCompletedAndRecovered()
                 } else {
-                    lessonNotCompleted(1538,1538)
+                    lessonNotCompleted(1533,1533)
                 }
             }
         }

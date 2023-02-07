@@ -46,6 +46,15 @@ class SettingsFragment : Fragment() {
         if (totalPoints >= 100) {
             binding.firstConstaint2.alpha = 1f
         }
+        if (totalPoints >= 150) {
+            binding.firstConstaint3.alpha = 1f
+        }
+        if (totalPoints >= 300) {
+            binding.firstConstaint4.alpha = 1f
+        }
+        if (totalPoints >= 2000) {
+            binding.firstConstaint5.alpha = 1f
+        }
     }
 
 
