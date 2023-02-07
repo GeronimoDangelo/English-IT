@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.study.englishit.R
 import com.study.englishit.databinding.ActivityHomeBinding
 import com.study.englishit.util.Constants.DATA_POINTS_KEY
@@ -34,13 +38,16 @@ class HomeActivity : AppCompatActivity() {
             binding.bottomNavMenu,
             findNavController(R.id.fragmentActivityHome),
         )
+
         initObservers()
     }
+
 
     override fun onResume() {
         super.onResume()
         initObservers()
     }
+
 
     private fun initObservers() {
         homeViewModel.getPoints()
