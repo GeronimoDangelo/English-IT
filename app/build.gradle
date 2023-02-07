@@ -99,5 +99,9 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1'
     // Security
     implementation "androidx.security:security-crypto:1.1.0-alpha04"
+    // cloud msg
+    implementation 'com.google.firebase:firebase-messaging:23.1.1'
+    //adbmob
+    implementation 'com.google.android.gms:play-services-ads:21.5.0'
 
 }

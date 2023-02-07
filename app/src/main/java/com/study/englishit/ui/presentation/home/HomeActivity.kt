@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.study.englishit.R
 import com.study.englishit.databinding.ActivityHomeBinding
 import com.study.englishit.util.Constants.DATA_POINTS_KEY
@@ -34,27 +38,53 @@ class HomeActivity : AppCompatActivity() {
             binding.bottomNavMenu,
             findNavController(R.id.fragmentActivityHome),
         )
+
         initObservers()
     }
+
 
     override fun onResume() {
         super.onResume()
         initObservers()
     }
 
+
     private fun initObservers() {
         homeViewModel.getPoints()
+        //for pas the number into text and into top bar
         val total = sharedPreferences.getInt(DATA_POINTS_KEY, 0).toString()
         binding.points.text = total
+        //
 
+        //for pas the points to viewmodel as int
         val totalPoints = sharedPreferences.getInt(DATA_POINTS_KEY, 0)
+        fun providePoints(points: Int = 1) {
+            homeViewModel.lessonCompleted(points)
+            homeViewModel.saveData()
+        }
 
         if (totalPoints == 45) {
+            providePoints()
             dialog()
         }
-        if (totalPoints == 105) {
+        if (totalPoints == 106) {
+            providePoints()
             dialog()
         }
+        if (totalPoints == 152) {
+            providePoints()
+            dialog()
+        }
+        if (totalPoints == 308) {
+            providePoints()
+            dialog()
+        }
+
+        if (totalPoints == 2022) {
+            providePoints()
+            dialog()
+        }
+
 
     }
 

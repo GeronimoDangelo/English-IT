@@ -38,6 +38,20 @@
             android:name=".ui.presentation.login.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3135486682869303~3590244691"/>
+
     </application>
 
 </manifest>

@@ -1,16 +1,16 @@
 package com.study.englishit.ui.presentation.home
 
 import android.content.SharedPreferences
-import android.graphics.BlendMode
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.compose.ui.res.colorResource
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.study.englishit.R
 import com.study.englishit.data.local.LocalSource.providesPhrases0
 import com.study.englishit.data.local.LocalSource.providesPhrases1
@@ -32,13 +32,21 @@ import com.study.englishit.databinding.ActivityDetailsBinding
 import com.study.englishit.ui.presentation.navigation_screens.adapters.DetailsListAdapter
 import com.study.englishit.util.Constants.DATA_POINTS_KEY
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import javax.inject.Inject
+import kotlin.coroutines.coroutineContext
+import kotlin.coroutines.suspendCoroutine
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailsBinding
+
+    private var insterstelar : InterstitialAd? = null
+
     private val detailsListAdapter = DetailsListAdapter()
+
 
 
     private val list0 = providesPhrases0()
@@ -69,7 +77,7 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        initAds()
         val title = intent.getIntExtra("title", 0)
         val img = intent.getIntExtra("img", 0)
         val id = intent.getIntExtra("id", 0)
@@ -79,6 +87,7 @@ class DetailsActivity : AppCompatActivity() {
         binding.backArrow.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
+
 
         fun provideViewmodel(points: Int = 15) {
             homeViewModel.lessonCompleted(points)
@@ -99,13 +108,14 @@ class DetailsActivity : AppCompatActivity() {
         }
 
         fun lessonNotCompleted(points: Int = 15, msg: Int = 15) {
+            initAds()
             binding.btnFinish.setOnClickListener {
                 playSound(R.raw.btn)
                 provideViewmodel(points = points)
-                binding.btnFinish.text = "$msg Puntos Ganados!"
                 binding.btnFinish.isEnabled = false
                 binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
                 binding.btnFinish.setTextColor(getColor(R.color.white))
+                showAds()
             }
         }
 
@@ -219,7 +229,7 @@ class DetailsActivity : AppCompatActivity() {
                 if (total >= 305) {
                     lessonCompletedAndRecovered()
                 } else {
-                    lessonNotCompleted(140,140)
+                    lessonNotCompleted(140, 140)
                 }
             }
             // YOURSELF
@@ -229,11 +239,11 @@ class DetailsActivity : AppCompatActivity() {
                 if (total >= 325) {
                     lessonCompletedAndRecovered()
                 } else {
-                    lessonNotCompleted(20,20)
+                    lessonNotCompleted(20, 20)
                 }
             }
             // OPINION
-            12 ->  {
+            12 -> {
                 detailsListAdapter.submitList(list12)
                 getPoints()
                 if (total >= 340) {
@@ -243,7 +253,7 @@ class DetailsActivity : AppCompatActivity() {
                 }
             }
             // PROBABILITY
-            13 ->  {
+            13 -> {
                 detailsListAdapter.submitList(list13)
                 getPoints()
                 if (total >= 355) {
@@ -253,13 +263,13 @@ class DetailsActivity : AppCompatActivity() {
                 }
             }
             // SHORT ANSWERS
-            14 ->  {
+            14 -> {
                 getPoints()
                 detailsListAdapter.submitList(list14)
                 if (total >= 485) {
                     lessonCompletedAndRecovered()
                 } else {
-                    lessonNotCompleted(130,130)
+                    lessonNotCompleted(130, 130)
                 }
             }
             // HOMETOWN
@@ -269,7 +279,7 @@ class DetailsActivity : AppCompatActivity() {
                 if (total >= 2023) {
                     lessonCompletedAndRecovered()
                 } else {
-                    lessonNotCompleted(1538,1538)
+                    lessonNotCompleted(1533, 1533)
                 }
             }
         }
@@ -280,8 +290,30 @@ class DetailsActivity : AppCompatActivity() {
         }
 
         initRecyclerView()
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        showAds()
+    }
+
+    private fun initAds() {
+        val adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712",adRequest, object : InterstitialAdLoadCallback(){
+            override fun onAdLoaded(p0: InterstitialAd) {
+                insterstelar = p0
+            }
+
+            override fun onAdFailedToLoad(p0: LoadAdError) {
+                insterstelar = null
+            }
+        })
+    }
+
+    private fun showAds(){
+        insterstelar?.show(this)
+    }
 
     private fun playSound(audio: Int) {
         var mediaPlayer: MediaPlayer? = null

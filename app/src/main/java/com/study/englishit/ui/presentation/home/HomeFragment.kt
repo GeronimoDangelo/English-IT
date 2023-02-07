@@ -61,10 +61,23 @@ class HomeFragment : Fragment() {
         initRecyclerView()
         initListeners()
         initObserver()
+
     }
+
+
 
     private fun initObserver() {
         itemListAdapter
+
+    }
+
+    private fun dialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("¡Felicidades! \uD83E\uDD8A")
+            .setMessage("Has desbloqueado un nuevo logro! Ve a logros y descubre tu recompensa!")
+            .setPositiveButton("Ok") { _, _ ->
+            }.create()
+            .show()
     }
 
 
@@ -222,7 +235,7 @@ class HomeFragment : Fragment() {
                 15 -> {
                     if (totalPoints >= 485) {
                         startActivity(intent)
-                    } else {                     // GIVE 1538 POINTS = 485 + 1538 = 2023
+                    } else {                     // GIVE 1533 POINTS = 489 + 1533 = 2022
                         dialog(485)
                     }
                 }
