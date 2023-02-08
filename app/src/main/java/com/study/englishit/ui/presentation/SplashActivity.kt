@@ -21,7 +21,6 @@ import javax.inject.Inject
 class SplashActivity : AppCompatActivity() {
 
     private val viewmodel: LoginViewModel by viewModels()
-    private val homeViewModel: HomeViewModel by viewModels()
 
 
     @Inject
@@ -45,7 +44,7 @@ class SplashActivity : AppCompatActivity() {
                     viewmodel.getUserData()
                 }
                 is DataState.Error -> {
-                    toast("las contraseñas no son validas")
+                    toast("No tienes conexion a internet.")
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }

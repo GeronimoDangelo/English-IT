@@ -93,6 +93,7 @@ class DetailsActivity : AppCompatActivity() {
         binding.tvFirstTitle.setText(title)
         binding.backArrow.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
+            showAds()
         }
 
 
@@ -106,11 +107,11 @@ class DetailsActivity : AppCompatActivity() {
         }
 
         fun lessonCompletedAndRecovered() {
+            initAds()
             binding.lessonCompleted.visibility = View.VISIBLE
             binding.btnFinish.visibility = View.GONE
             binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
             binding.btnFinish.setTextColor(getColor(R.color.white))
-
 
         }
 

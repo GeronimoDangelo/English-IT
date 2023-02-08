@@ -41,7 +41,7 @@ class RecoveryPasswordFragment : Fragment() {
                 is DataState.Success<Boolean> -> {
                     hideProgressDialog()
                     activity?.onBackPressedDispatcher?.onBackPressed()
-                    Toast.makeText(requireContext(),"hemos enviado un link para reestablecer tu contraseña", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(),"Hemos enviado un link para reestablecer tu contraseña", Toast.LENGTH_LONG).show()
                 }
                 is DataState.Error -> {
                     hideProgressDialog()
