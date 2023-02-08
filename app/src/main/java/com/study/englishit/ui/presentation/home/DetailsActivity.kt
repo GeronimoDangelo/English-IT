@@ -4,13 +4,19 @@ import android.content.SharedPreferences
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.OnUserEarnedRewardListener
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.gms.ads.rewarded.RewardItem
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.study.englishit.R
 import com.study.englishit.data.local.LocalSource.providesPhrases0
 import com.study.englishit.data.local.LocalSource.providesPhrases1
@@ -43,7 +49,7 @@ class DetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailsBinding
 
-    private var insterstelar : InterstitialAd? = null
+    private var insterstelar: InterstitialAd? = null
 
     private val detailsListAdapter = DetailsListAdapter()
 
@@ -75,9 +81,10 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MobileAds.initialize(this)
+        initAds()
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initAds()
         val title = intent.getIntExtra("title", 0)
         val img = intent.getIntExtra("img", 0)
         val id = intent.getIntExtra("id", 0)
@@ -293,27 +300,46 @@ class DetailsActivity : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onBackPressed() {
+        super.getOnBackPressedDispatcher().onBackPressed()
         showAds()
     }
 
+    override fun onResume() {
+        super.onResume()
+        initAds()
+    }
+
+
+
     private fun initAds() {
         val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712",adRequest, object : InterstitialAdLoadCallback(){
-            override fun onAdLoaded(p0: InterstitialAd) {
-                insterstelar = p0
-            }
+        InterstitialAd.load(
+            this,
+            "ca-app-pub-3940256099942544/1033173712",
+            adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdLoaded(p0: InterstitialAd) {
+                    insterstelar = p0
+                }
 
-            override fun onAdFailedToLoad(p0: LoadAdError) {
-                insterstelar = null
-            }
-        })
+                override fun onAdFailedToLoad(p0: LoadAdError) {
+                    insterstelar = null
+
+                }
+            })
     }
 
-    private fun showAds(){
-        insterstelar?.show(this)
+    private fun showAds() {
+        if (insterstelar != null){
+           insterstelar?.show(this)
+            Log.d("Admob Inter", "Add showned!!! yessss")
+        } else {
+            Log.e("Admob Inter", "Add not showed.")
+
+        }
     }
+
 
     private fun playSound(audio: Int) {
         var mediaPlayer: MediaPlayer? = null
