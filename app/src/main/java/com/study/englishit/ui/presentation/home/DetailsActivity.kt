@@ -121,6 +121,7 @@ class DetailsActivity : AppCompatActivity() {
                 playSound(R.raw.btn)
                 provideViewmodel(points = points)
                 binding.btnFinish.isEnabled = false
+                binding.btnFinish.text = "Leccion completada ✔"
                 binding.btnFinish.setBackgroundColor(getColor(R.color.pointsEarned))
                 binding.btnFinish.setTextColor(getColor(R.color.white))
                 showAds()
