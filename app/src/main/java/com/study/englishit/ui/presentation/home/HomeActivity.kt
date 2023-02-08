@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.study.englishit.R
@@ -33,6 +34,7 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         val screen = binding.root
         setContentView(screen)
+        MobileAds.initialize(this)
         homeViewModel.getPoints()
         NavigationUI.setupWithNavController(
             binding.bottomNavMenu,
