@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.annotation.Keep
 import androidx.appcompat.app.AppCompatActivity
 import com.study.englishit.ui.presentation.home.HomeActivity
 import com.study.englishit.ui.presentation.home.HomeViewModel
@@ -15,8 +16,7 @@ import com.study.englishit.util.DataState
 import com.study.englishit.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
-
+@Keep
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
 

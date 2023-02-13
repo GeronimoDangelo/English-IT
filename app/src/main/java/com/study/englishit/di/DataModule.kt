@@ -1,5 +1,6 @@
 package com.study.englishit.di
 
+import androidx.annotation.Keep
 import com.study.englishit.R
 import com.study.englishit.domain.model.CardItemModel
 import dagger.Module
@@ -8,7 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-
+@Keep
 @Module
 @InstallIn(SingletonComponent::class)
 object DataModule {

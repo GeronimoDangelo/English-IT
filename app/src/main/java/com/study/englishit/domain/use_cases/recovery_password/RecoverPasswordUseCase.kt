@@ -1,12 +1,13 @@
 package com.study.englishit.domain.use_cases.recovery_password
 
+import androidx.annotation.Keep
 import com.google.firebase.auth.FirebaseAuth
 import com.study.englishit.util.DataState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
-
+@Keep
 class RecoverPasswordUseCase @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ) {

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.annotation.Keep
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
@@ -44,6 +45,7 @@ import javax.inject.Inject
 import kotlin.coroutines.coroutineContext
 import kotlin.coroutines.suspendCoroutine
 
+@Keep
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
 
@@ -318,7 +320,7 @@ class DetailsActivity : AppCompatActivity() {
         val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(
             this,
-            "ca-app-pub-3940256099942544/1033173712",
+            "ca-app-pub-3135486682869303/8391979388",
             adRequest,
             object : InterstitialAdLoadCallback() {
                 override fun onAdLoaded(p0: InterstitialAd) {

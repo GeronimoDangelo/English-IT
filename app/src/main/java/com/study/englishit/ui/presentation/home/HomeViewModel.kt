@@ -3,6 +3,7 @@ package com.study.englishit.ui.presentation.home
 import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.Keep
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,7 +21,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
-
+@Keep
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val sharedPreferences: SharedPreferences,

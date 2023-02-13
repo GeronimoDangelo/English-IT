@@ -73,7 +73,7 @@ class ItemsSavedFragment : Fragment() {
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.type = "text/plain"
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "✨ Aprende ingles con frases reales! \uD83E\uDD8A \n Englisht IT \uD83E\uDD8A \n https://play.google.com/store/apps/details?id=com.coffee.bookapp")
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "✨ Aprende ingles con frases reales! \uD83E\uDD8A \n Englisht IT \uD83E\uDD8A \n https://play.google.com/store/apps/details?id=com.study.englishit")
             startActivity(Intent.createChooser(shareIntent,"Share app via"))
         }
     }

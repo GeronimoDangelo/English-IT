@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.Keep
 import androidx.core.graphics.alpha
 import androidx.core.view.children
 import androidx.fragment.app.viewModels
@@ -28,6 +29,7 @@ import java.lang.Float
 import javax.inject.Inject
 import kotlin.math.sign
 
+@Keep
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
