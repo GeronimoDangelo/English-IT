@@ -1,5 +1,6 @@
 package com.study.englishit.di
 
+import androidx.annotation.Keep
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -12,7 +13,7 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
-
+@Keep
 @Module
 @InstallIn(SingletonComponent::class)
 object FirebaseModule {

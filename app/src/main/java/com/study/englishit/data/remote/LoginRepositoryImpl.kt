@@ -1,6 +1,7 @@
 package com.study.englishit.data.remote
 
 import android.content.SharedPreferences
+import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -21,7 +22,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
-
+@Keep
 class LoginRepositoryImpl @Inject constructor(
     private val auth: FirebaseAuth,
     @FirebaseModule.UsersCollection private val usersCollection: CollectionReference,

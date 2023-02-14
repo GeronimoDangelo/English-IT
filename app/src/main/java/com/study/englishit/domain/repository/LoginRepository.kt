@@ -1,9 +1,11 @@
 package com.study.englishit.domain.repository
 
+import androidx.annotation.Keep
 import com.study.englishit.domain.model.User
 import com.study.englishit.util.DataState
 import kotlinx.coroutines.flow.Flow
 
+@Keep
 interface LoginRepository {
     suspend fun login(email:String,password: String): Flow<DataState<Boolean>>
 

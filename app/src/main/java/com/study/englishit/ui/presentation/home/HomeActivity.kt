@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.annotation.Keep
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
@@ -18,7 +19,7 @@ import com.study.englishit.databinding.ActivityHomeBinding
 import com.study.englishit.util.Constants.DATA_POINTS_KEY
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
+@Keep
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
